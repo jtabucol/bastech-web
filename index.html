@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grip by Bastech — Your money. Your grip.</title>
+  <meta name="description" content="The personal finance app that puts you in control. Track income, expenses, budgets, and bills — all in one place. Free to start." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #F26722;
+      --orange-dark: #d45a18;
+      --orange-light: #FF8C4B;
+      --slate-900: #1C1F24;
+      --slate-800: #23272F;
+      --slate-700: #2E3340;
+      --slate-600: #3D4455;
+      --slate-400: #8892A4;
+      --slate-200: #C8D0DC;
+      --slate-100: #EEF1F5;
+      --white: #FFFFFF;
+      --green: #22C55E;
+      --red: #EF4444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--slate-900);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(28, 31, 36, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--orange);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .nav-logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-logo-text span { color: var(--orange); }
+
+    .nav-sub {
+      font-size: 11px;
+      color: var(--slate-400);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-left: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--slate-200);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      font-size: 14px !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange-dark) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(242,103,34,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(242,103,34,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(242,103,34,0.12);
+      border: 1px solid rgba(242,103,34,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange-light);
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-badge::before {
+      content: '●';
+      font-size: 8px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(242,103,34,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(242,103,34,0.45);
+    }
+
+    .btn-ghost {
+      color: var(--slate-200);
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+    .btn-ghost:hover::after { transform: translateX(4px); }
+
+    .hero-trust {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--slate-400);
+    }
+
+    .hero-trust-dots {
+      display: flex;
+      gap: -6px;
+    }
+
+    .dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--slate-700);
+      border: 2px solid var(--slate-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-left: -6px;
+    }
+
+    .dot:first-child { margin-left: 0; }
+
+    /* Phone mockup */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .phone-wrap {
+      position: relative;
+    }
+
+    .phone-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle at 50% 50%, rgba(242,103,34,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .phone {
+      width: 260px;
+      background: var(--slate-800);
+      border-radius: 36px;
+      border: 2px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .phone-notch {
+      width: 80px;
+      height: 24px;
+      background: var(--slate-900);
+      border-radius: 0 0 16px 16px;
+      margin: 0 auto 16px;
+    }
+
+    .phone-inner { padding: 0 16px 24px; }
+
+    .phone-balance-card {
+      background: var(--orange);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-balance-card::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .phone-balance-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: 20px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .phone-balance-label { font-size: 10px; color: rgba(255,255,255,0.7); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
+    .phone-balance-amount { font-size: 26px; font-weight: 900; color: white; letter-spacing: -1px; margin: 4px 0; }
+    .phone-balance-row { display: flex; gap: 12px; margin-top: 10px; }
+    .phone-balance-item { flex: 1; }
+    .phone-balance-item-label { font-size: 9px; color: rgba(255,255,255,0.6); margin-bottom: 2px; }
+    .phone-balance-item-val { font-size: 12px; font-weight: 700; color: white; }
+    .income-val { color: #a7f3d0; }
+    .expense-val { color: #fecaca; }
+
+    .phone-section-title { font-size: 11px; font-weight: 700; color: var(--slate-400); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 10px; }
+
+    .phone-txn { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .phone-txn-icon { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+    .txn-green { background: rgba(34,197,94,0.15); }
+    .txn-red { background: rgba(239,68,68,0.15); }
+    .txn-blue { background: rgba(96,165,250,0.15); }
+    .phone-txn-info { flex: 1; }
+    .phone-txn-name { font-size: 11px; font-weight: 600; color: var(--white); }
+    .phone-txn-date { font-size: 9px; color: var(--slate-400); }
+    .phone-txn-amount { font-size: 12px; font-weight: 700; }
+    .phone-txn-amount.pos { color: var(--green); }
+    .phone-txn-amount.neg { color: var(--red); }
+
+    .phone-budget-bar { margin-bottom: 10px; }
+    .phone-budget-top { display: flex; justify-content: space-between; font-size: 10px; color: var(--slate-400); margin-bottom: 4px; }
+    .phone-budget-track { height: 5px; background: var(--slate-700); border-radius: 3px; overflow: hidden; }
+    .phone-budget-fill { height: 100%; border-radius: 3px; }
+    .fill-green { background: var(--green); }
+    .fill-orange { background: var(--orange); }
+    .fill-red { background: var(--red); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 48px;
+    }
+
+    .stats-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-value { font-size: 32px; font-weight: 900; color: var(--orange); letter-spacing: -1px; }
+    .stat-label { font-size: 13px; color: var(--slate-400); margin-top: 2px; font-weight: 500; }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--slate-400);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── FEATURES ── */
+    #features { background: var(--slate-800); }
+
+    .features-header { margin-bottom: 60px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--slate-900);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(242,103,34,0.3);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: rgba(242,103,34,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feature-desc { font-size: 14px; color: var(--slate-400); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .how-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 1px;
+      background: linear-gradient(to right, var(--orange), transparent);
+    }
+
+    .how-step { text-align: center; }
+
+    .how-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: white;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-step:not(:first-child) .how-number {
+      background: var(--slate-700);
+      color: var(--slate-200);
+    }
+
+    .how-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .how-desc { font-size: 13px; color: var(--slate-400); line-height: 1.6; }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--slate-800); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 780px;
+      margin: 60px auto 0;
+    }
+
+    .pricing-card {
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--slate-900);
+      transition: transform 0.2s;
+    }
+
+    .pricing-card.featured {
+      background: var(--orange);
+      border-color: transparent;
+      position: relative;
+    }
+
+    .pricing-card:hover { transform: translateY(-4px); }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .pricing-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
+    .pricing-card.featured .pricing-name { color: rgba(255,255,255,0.8); }
+    .pricing-price { font-size: 48px; font-weight: 900; letter-spacing: -2px; line-height: 1; }
+    .pricing-price span { font-size: 18px; font-weight: 600; letter-spacing: 0; }
+    .pricing-period { font-size: 13px; color: var(--slate-400); margin: 6px 0 28px; }
+    .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.7); }
+
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .pricing-features li { font-size: 14px; display: flex; align-items: flex-start; gap: 10px; }
+    .pricing-features li::before { content: '✓'; font-weight: 800; color: var(--green); flex-shrink: 0; padding-top: 1px; }
+    .pricing-card.featured .pricing-features li::before { color: rgba(255,255,255,0.9); }
+    .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.9); }
+
+    .pricing-btn {
+      display: block;
+      text-align: center;
+      margin-top: 28px;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .pricing-btn-default {
+      background: var(--slate-700);
+      color: var(--white);
+    }
+
+    .pricing-btn-default:hover { background: var(--slate-600); }
+
+    .pricing-btn-featured {
+      background: var(--white);
+      color: var(--orange);
+    }
+
+    .pricing-btn-featured:hover { background: rgba(255,255,255,0.9); }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-section { text-align: center; }
+
+    .testimonial-card {
+      max-width: 640px;
+      margin: 48px auto 0;
+      background: var(--slate-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 48px;
+    }
+
+    .testimonial-quote {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-quote .highlight { color: var(--orange); }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .testimonial-name { font-weight: 700; font-size: 15px; }
+    .testimonial-role { font-size: 12px; color: var(--slate-400); }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 100px 48px;
+      background: var(--slate-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(242,103,34,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section .section-title { font-size: clamp(36px, 5vw, 56px); }
+
+    .cta-sub {
+      font-size: 18px;
+      color: var(--slate-400);
+      margin: 16px auto 40px;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--slate-400);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--slate-900);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 48px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-left { display: flex; align-items: center; gap: 10px; }
+    .footer-logo { font-size: 15px; font-weight: 800; }
+    .footer-logo span { color: var(--orange); }
+    .footer-tagline { font-size: 12px; color: var(--slate-400); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--slate-400);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--slate-600);
+      text-align: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-sub { margin: 0 auto 40px; }
+      .hero-actions { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-visual { display: none; }
+      section { padding: 72px 24px; }
+      .stats-bar { padding: 24px; }
+      .stats-bar-inner { gap: 40px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid::before { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .cta-section { padding: 72px 24px; }
+      footer { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">G</div>
+      <div>
+        <div class="nav-logo-text"><span>Grip</span></div>
+        <div class="nav-sub">by Bastech</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="https://grip.bastech.app" class="nav-cta">Get started free →</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Now live — free to use</div>
+        <h1>Your money.<br /><span class="accent">Your grip.</span></h1>
+        <p class="hero-sub">Stop guessing where your money goes. Grip gives your household one place to track income, control spending, and stay ahead of every bill.</p>
+        <div class="hero-actions">
+          <a href="https://grip.bastech.app" class="btn-primary">Start for free</a>
+          <a href="#features" class="btn-ghost">See features</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-dots">
+            <div class="dot">👩</div>
+            <div class="dot">👨</div>
+            <div class="dot">👩</div>
+            <div class="dot">👨</div>
+          </div>
+          <span>Built for real families. No card required.</span>
+        </div>
+      </div>
+
+      <!-- Phone Mockup -->
+      <div class="hero-visual">
+        <div class="phone-wrap">
+          <div class="phone-glow"></div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-inner">
+              <div class="phone-balance-card">
+                <div class="phone-balance-label">Total Balance</div>
+                <div class="phone-balance-amount">₱186,420</div>
+                <div class="phone-balance-row">
+                  <div class="phone-balance-item">
+                    <div class="phone-balance-item-label">↑ Income</div>
+                    <div class="phone-balance-item-val income-val">₱52,000</div>
+                  </div>
+                  <div class="phone-balance-item">
+                    <div class="phone-balance-item-label">↓ Expenses</div>
+                    <div class="phone-balance-item-val expense-val">₱23,840</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-section-title">Recent Activity</div>
+              <div class="phone-txn">
+                <div class="phone-txn-icon txn-green">💼</div>
+                <div class="phone-txn-info">
+                  <div class="phone-txn-name">Monthly Salary</div>
+                  <div class="phone-txn-date">Mar 30</div>
+                </div>
+                <div class="phone-txn-amount pos">+₱52,000</div>
+              </div>
+              <div class="phone-txn">
+                <div class="phone-txn-icon txn-red">🛒</div>
+                <div class="phone-txn-info">
+                  <div class="phone-txn-name">Groceries</div>
+                  <div class="phone-txn-date">Mar 28</div>
+                </div>
+                <div class="phone-txn-amount neg">-₱4,200</div>
+              </div>
+              <div class="phone-txn">
+                <div class="phone-txn-icon txn-blue">📲</div>
+                <div class="phone-txn-info">
+                  <div class="phone-txn-name">Electric Bill</div>
+                  <div class="phone-txn-date">Mar 25</div>
+                </div>
+                <div class="phone-txn-amount neg">-₱3,100</div>
+              </div>
+
+              <div class="phone-section-title" style="margin-top:14px">Budget Status</div>
+              <div class="phone-budget-bar">
+                <div class="phone-budget-top"><span>Groceries</span><span>₱8,400 / ₱12,000</span></div>
+                <div class="phone-budget-track"><div class="phone-budget-fill fill-green" style="width:70%"></div></div>
+              </div>
+              <div class="phone-budget-bar">
+                <div class="phone-budget-top"><span>Dining</span><span>₱4,800 / ₱5,000</span></div>
+                <div class="phone-budget-track"><div class="phone-budget-fill fill-orange" style="width:96%"></div></div>
+              </div>
+              <div class="phone-budget-bar">
+                <div class="phone-budget-top"><span>Transport</span><span>₱3,200 / ₱3,000</span></div>
+                <div class="phone-budget-track"><div class="phone-budget-fill fill-red" style="width:100%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Free to start</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">15+</div>
+        <div class="stat-label">Currencies supported</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Ads, ever</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Transactions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="features-header">
+        <div class="section-eyebrow">Everything you need</div>
+        <h2 class="section-title">Built for how families<br />actually manage money</h2>
+        <p class="section-sub">Not a banking app. Not a spreadsheet. Grip is the middle ground — simple enough to actually use, powerful enough to make a difference.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <div class="feature-title">Income Tracking</div>
+          <div class="feature-desc">Log salaries, freelance income, side hustles — all sources in one place. Know exactly what's coming in each month.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Expense Logging</div>
+          <div class="feature-desc">Record every peso spent with categories, accounts, and dates. Edit or delete entries anytime — no locked history.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title">Budget Goals</div>
+          <div class="feature-desc">Set monthly limits per category and watch color-coded progress bars tell you where you stand at a glance.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <div class="feature-title">Payables Tracker</div>
+          <div class="feature-desc">Never miss a bill. Schedule recurring payables, mark them paid (with account tracking), skip months when needed.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏦</div>
+          <div class="feature-title">Account Management</div>
+          <div class="feature-desc">Track cash, bank accounts, credit cards, e-wallets, and investments — all with live balance updates.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍👩‍👧</div>
+          <div class="feature-title">Household Sharing</div>
+          <div class="feature-desc">Invite your partner or family members. Everyone sees the same picture. One household, one financial truth.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow">Simple by design</div>
+        <h2 class="section-title">Up and running in minutes</h2>
+        <p class="section-sub" style="margin:0 auto">No bank sync to set up. No complicated onboarding. Just start and build the habit.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-number">1</div>
+          <div class="how-title">Create your account</div>
+          <div class="how-desc">Sign up free with your email. No credit card, no setup fees. Takes 30 seconds.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">2</div>
+          <div class="how-title">Set up your household</div>
+          <div class="how-desc">Add your accounts — cash, bank, GCash, credit card. Enter your opening balances.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">3</div>
+          <div class="how-title">Log your money</div>
+          <div class="how-desc">Add income and expenses as they happen. Set your monthly budgets per category.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">4</div>
+          <div class="how-title">See the full picture</div>
+          <div class="how-desc">Your dashboard, charts, and budget tracker update instantly. Stay in grip — always.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow">Simple pricing</div>
+        <h2 class="section-title">Start free. Upgrade when ready.</h2>
+        <p class="section-sub" style="margin:0 auto">No hidden fees. Cancel anytime. Your data is always yours.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Free</div>
+          <div class="pricing-price">₱0</div>
+          <div class="pricing-period">Forever free</div>
+          <ul class="pricing-features">
+            <li>1 household</li>
+            <li>Unlimited transactions</li>
+            <li>All account types</li>
+            <li>Budget tracking</li>
+            <li>Payables & bills</li>
+            <li>15+ currencies</li>
+          </ul>
+          <a href="https://grip.bastech.app" class="pricing-btn pricing-btn-default">Get started free</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge">🔥 Founding Member</div>
+          <div class="pricing-name">Premium</div>
+          <div class="pricing-price"><span>₱</span>199</div>
+          <div class="pricing-period">per month — lock in this rate forever</div>
+          <ul class="pricing-features">
+            <li>Everything in Free</li>
+            <li>Up to 5 household members</li>
+            <li>Full transaction history</li>
+            <li>Income vs expense charts</li>
+            <li>Category pie charts</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="https://grip.bastech.app" class="pricing-btn pricing-btn-featured">Claim founding rate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section">
+    <div class="section-inner">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          "Finally an app that doesn't need a <span class="highlight">finance degree</span> to use. I can see exactly where we're overspending and fix it the same day."
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">July T.</div>
+            <div class="testimonial-role">Early user · Manila, PH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-inner" style="position:relative">
+      <h2 class="section-title">Ready to take grip<br />of your finances?</h2>
+      <p class="cta-sub">Join families who are already tracking smarter. Free forever, no card needed.</p>
+      <div class="cta-actions">
+        <a href="https://grip.bastech.app" class="btn-primary" style="font-size:17px; padding:16px 32px;">Start for free →</a>
+      </div>
+      <div class="cta-note">No credit card · No setup · Works on any device</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div>
+          <div class="footer-logo"><span>Grip</span> by Bastech</div>
+          <div class="footer-tagline">Your money. Your grip.</div>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="https://grip.bastech.app">Launch App</a></li>
+        <li><a href="mailto:hello@bastech.app">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">© 2026 Bastech. All rights reserved. · grip.bastech.app</div>
+  </footer>
+
+</body>
+</html>
