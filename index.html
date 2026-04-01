@@ -66,10 +66,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      font-weight: 900;
-      color: white;
-      letter-spacing: -1px;
+      flex-shrink: 0;
     }
 
     .nav-logo-text {
@@ -732,7 +729,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
-      <div class="nav-logo-icon">G</div>
+      <div class="nav-logo-icon"><svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M11 3v8M11 11L6 7M11 11l5-4M4 15h14M6 18h10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div>
         <div class="nav-logo-text"><span>Grip</span></div>
         <div class="nav-sub">by Bastech</div>
@@ -1011,7 +1008,7 @@
     <div class="footer-inner">
       <div class="footer-left">
         <div>
-          <div class="footer-logo"><span>Grip</span> by Bastech</div>
+          <div class="footer-logo" style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M11 3v8M11 11L6 7M11 11l5-4M4 15h14M6 18h10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Grip</span> by Bastech</div>
           <div class="footer-tagline">Your money. Your grip.</div>
         </div>
       </div>
