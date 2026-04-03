@@ -57,7 +57,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-logo { cursor: pointer; display: flex; align-items: center; line-height: 0; }
+    .nav-logo { cursor: pointer; display: flex; align-items: center; line-height: 0; flex-shrink: 0; overflow: visible; }
 
     .nav-links { display: flex; gap: 0.2rem; list-style: none; }
 
@@ -1170,7 +1170,7 @@
 <!-- ====== NAV ====== -->
 <nav>
   <div class="nav-logo" onclick="navigate('home')">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" height="32" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="160" height="32" fill="none" style="display:block;flex-shrink:0;">
   <!-- Bottom line (longest) -->
   <line x1="2" y1="36" x2="44" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
   <!-- Middle line -->
@@ -1783,7 +1783,7 @@
 <!-- ====== FOOTER ====== -->
 <div class="footer-wrap">
   <div class="footer-logo" onclick="navigate('home')">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" height="26" fill="none" style="opacity:0.7;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="130" height="26" fill="none" style="display:block;opacity:0.7;">
   <line x1="2" y1="36" x2="44" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
   <line x1="7" y1="24" x2="39" y2="24" stroke="white" stroke-width="6" stroke-linecap="round"/>
   <line x1="13" y1="12" x2="33" y2="12" stroke="white" stroke-width="6" stroke-linecap="round"/>
@@ -1803,7 +1803,7 @@
   <p class="footer-copy">© 2026 Bastech. Built with intention.</p>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ====== NAVIGATION ======
   function navigate(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1833,4 +1833,22 @@
     });
   }
 
-  func
+  function currentPage() {
+    const active = document.querySelector('.page.active');
+    return active ? active.id.replace('page-', '') : 'home';
+  }
+
+  // ====== FORM ======
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'flex';
+  }
+
+  // ====== INIT ======
+  document.addEventListener('DOMContentLoaded', () => {
+    initAnimations();
+  });
+</script>
+</body>
+</html>
