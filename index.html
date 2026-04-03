@@ -1422,7 +1422,7 @@
           <div class="contact-icon">✉️</div>
           <div>
             <span>Email</span>
-            <strong><a href="/cdn-cgi/l/email-protection#eb989e9b9b84999fab898a989f8e8883c58a9b9b" style="color:inherit;text-decoration:none"><span class="__cf_email__" data-cfemail="8ffcfaffffe0fdfbcfedeefcfbeaece7a1eeffff">[email&#160;protected]</span></a></strong>
+            <strong><a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a></strong>
           </div>
         </div>
         <div class="contact-item">
@@ -1714,7 +1714,7 @@
 
       <div>
         <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">5. Refund Policy</h2>
-        <p>We offer a <strong style="color:var(--text);">7-day money-back guarantee</strong> for new paid subscriptions. If you are unsatisfied with the Service within 7 days of your first payment, contact us at <a href="/cdn-cgi/l/email-protection#e5969095958a9791a58784969180868dcb849595" style="color:inherit;text-decoration:none"><span class="__cf_email__" data-cfemail="7b080e0b0b14090f3b191a080f1e1813551a0b0b">[email&#160;protected]</span></a> for a full refund. After 7 days, subscription fees are non-refundable. Refunds are not provided for partial billing periods or unused portions of a subscription.</p>
+        <p>We offer a <strong style="color:var(--text);">7-day money-back guarantee</strong> for new paid subscriptions. If you are unsatisfied with the Service within 7 days of your first payment, contact us at <a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a> for a full refund. After 7 days, subscription fees are non-refundable. Refunds are not provided for partial billing periods or unused portions of a subscription.</p>
       </div>
 
       <div>
@@ -1751,7 +1751,7 @@
 
       <div>
         <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">11. Termination</h2>
-        <p>We reserve the right to suspend or terminate your account at any time, with or without notice, if we reasonably believe you have violated these Terms. You may delete your account at any time by contacting us at <a href="/cdn-cgi/l/email-protection#ee9d9b9e9e819c9aae8c8f9d9a8b8d86c08f9e9e" style="color:inherit;text-decoration:none"><span class="__cf_email__" data-cfemail="80f3f5f0f0eff2f4c0e2e1f3f4e5e3e8aee1f0f0">[email&#160;protected]</span></a>. Upon termination, your right to use the Service will immediately cease. We may retain certain data as required by law or for legitimate business purposes.</p>
+        <p>We reserve the right to suspend or terminate your account at any time, with or without notice, if we reasonably believe you have violated these Terms. You may delete your account at any time by contacting us at <a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a>. Upon termination, your right to use the Service will immediately cease. We may retain certain data as required by law or for legitimate business purposes.</p>
       </div>
 
       <div>
@@ -1769,7 +1769,7 @@
         <p>If you have any questions about these Terms, please contact us at:</p>
         <div style="margin-top:1rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);line-height:2;">
           <strong style="color:var(--text);">Bastech</strong><br>
-          Email: <a href="/cdn-cgi/l/email-protection#394a4c4949564b4d795b584a4d5c5a5117584949" style="color:inherit;text-decoration:none"><span class="__cf_email__" data-cfemail="e0939590908f9294a082819394858388ce819090">[email&#160;protected]</span></a><br>
+          Email: <a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a><br>
           Website: <a href="https://bastech.app" style="color:var(--orange);">bastech.app</a>
         </div>
       </div>
@@ -1805,7 +1805,7 @@
   <p class="footer-copy">© 2026 Bastech. Built with intention.</p>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ====== NAVIGATION ======
   function navigate(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1840,14 +1840,13 @@
     return active ? active.id.replace('page-', '') : 'home';
   }
 
-  // ====== FORM ======
+  // ====== CONTACT FORM ======
   async function handleFormSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contact-form');
     const btn = form.querySelector('.form-submit');
     const endpoint = form.getAttribute('action');
 
-    // If Formspree not yet configured, fallback gracefully
     if (!endpoint || endpoint === 'FORMSPREE_ENDPOINT') {
       form.style.display = 'none';
       document.getElementById('form-success').style.display = 'flex';
@@ -1861,4 +1860,27 @@
       const res = await fetch(endpoint, {
         method: 'POST',
         body: new FormData(form),
-        headers: { 'Accept': 'applic
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'flex';
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong. Please email support@bastech.app directly.');
+      }
+    } catch (err) {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Could not send. Please email support@bastech.app directly.');
+    }
+  }
+
+  // ====== INIT ======
+  document.addEventListener('DOMContentLoaded', () => {
+    initAnimations();
+  });
+</script>
+</body>
+</html>
