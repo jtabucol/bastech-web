@@ -57,7 +57,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-logo { cursor: pointer; display: flex; align-items: center; line-height: 0; }
+    .nav-logo { cursor: pointer; display: flex; align-items: center; line-height: 0; flex-shrink: 0; overflow: visible; }
 
     .nav-links { display: flex; gap: 0.2rem; list-style: none; }
 
@@ -1021,6 +1021,148 @@
 
 #page-grip .cta-note { margin-top: 20px; font-size: 13px; color: var(--slate-400); }
 
+      /* Grip page responsive */
+    @media (max-width: 768px) {
+      /* Hero */
+      #page-grip .hero {
+        padding: 40px 24px 48px;
+        min-height: unset;
+      }
+      #page-grip .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+      }
+      #page-grip h1 {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+      }
+      #page-grip .hero-sub {
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto 32px;
+        max-width: 100%;
+      }
+      #page-grip .hero-actions {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      #page-grip .hero-actions .btn-primary {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        padding: 13px 24px;
+      }
+      #page-grip .hero-trust {
+        justify-content: center;
+        margin-top: 28px;
+      }
+      /* Phone mockup — show but smaller and centered */
+      #page-grip .hero-visual {
+        display: flex;
+        justify-content: center;
+      }
+      #page-grip .phone {
+        width: 240px;
+      }
+      /* Stats bar */
+      #page-grip .stats-bar {
+        padding: 24px 20px;
+      }
+      #page-grip .stats-bar-inner {
+        gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      #page-grip .stat-item {
+        min-width: 80px;
+      }
+      #page-grip .stat-value {
+        font-size: 26px;
+      }
+      /* Sections */
+      #page-grip section {
+        padding: 56px 20px;
+      }
+      #page-grip .section-inner {
+        padding: 0;
+      }
+      #page-grip .section-title {
+        font-size: 28px;
+        letter-spacing: -1px;
+      }
+      #page-grip .section-sub {
+        font-size: 15px;
+      }
+      /* Features */
+      #page-grip .features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      #page-grip .features-header {
+        margin-bottom: 36px;
+      }
+      /* How it works */
+      #page-grip .how-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      #page-grip .how-grid::before {
+        display: none;
+      }
+      #page-grip .how-number {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+        margin-bottom: 14px;
+      }
+      /* Pricing */
+      #page-grip .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin-top: 36px;
+      }
+      #page-grip .pricing-card {
+        padding: 28px 24px;
+      }
+      /* Testimonial */
+      #page-grip .testimonial-card {
+        padding: 28px 20px;
+        margin-top: 32px;
+      }
+      #page-grip .testimonial-quote {
+        font-size: 17px;
+      }
+      /* CTA */
+      #page-grip .cta-section {
+        padding: 56px 20px;
+      }
+      #page-grip .cta-section .section-title {
+        font-size: 28px;
+      }
+      #page-grip .cta-sub {
+        font-size: 15px;
+      }
+      #page-grip .cta-actions .btn-primary {
+        font-size: 15px;
+        padding: 13px 24px;
+      }
+      /* Back button */
+      #page-grip > div:first-child {
+        padding: 12px 20px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #page-grip h1 { font-size: 32px; }
+      #page-grip .phone { width: 200px; }
+      #page-grip .phone-balance-amount { font-size: 18px; }
+      #page-grip .how-grid { grid-template-columns: 1fr; }
+      #page-grip .stats-bar-inner { gap: 16px; }
+      #page-grip .stat-value { font-size: 22px; }
+    }
   </style>
 </head>
 <body>
@@ -1028,7 +1170,7 @@
 <!-- ====== NAV ====== -->
 <nav>
   <div class="nav-logo" onclick="navigate('home')">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" height="32" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="160" height="32" fill="none" style="display:block;flex-shrink:0;">
   <!-- Bottom line (longest) -->
   <line x1="2" y1="36" x2="44" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
   <!-- Middle line -->
@@ -1280,7 +1422,7 @@
           <div class="contact-icon">✉️</div>
           <div>
             <span>Email</span>
-            <strong><a href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce3c1c2d0d7c6c0cb8dc2d3d3" style="color:inherit;text-decoration:none"><span class="__cf_email__" data-cfemail="8be3eee7e7e4cbe9eaf8ffeee8e3a5eafbfb">[email&#160;protected]</span></a></strong>
+            <strong><a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a></strong>
           </div>
         </div>
         <div class="contact-item">
@@ -1301,35 +1443,37 @@
     </div>
 
     <div class="contact-form" id="contact-form-wrap">
-      <form id="contact-form" onsubmit="handleFormSubmit(event)">
+      <form id="contact-form" action="https://formspree.io/f/xwvwnjde" method="POST" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" name="_subject" value="New message from Bastech website">
+        <input type="hidden" name="_next" value="">
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="Your first name" required>
+            <input type="text" name="first_name" placeholder="Your first name" required>
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Your last name">
+            <input type="text" name="last_name" placeholder="Your last name">
           </div>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" placeholder="your@email.com" required>
+          <input type="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
           <label>Subject</label>
-          <input type="text" placeholder="What's this about?" required>
+          <input type="text" name="subject" placeholder="What's this about?" required>
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea placeholder="Tell us what's on your mind..."></textarea>
+          <textarea name="message" placeholder="Tell us what's on your mind..."></textarea>
         </div>
         <button type="submit" class="form-submit">Send Message →</button>
       </form>
       <div class="form-success" id="form-success">
         <div class="success-icon">🧡</div>
         <h3>Message sent!</h3>
-        <p>Thanks for reaching out. We'll get back to you as soon as we can.</p>
+        <p>Thanks for reaching out. We'll get back to you within 24–48 hours.</p>
       </div>
     </div>
   </div>
@@ -1358,6 +1502,18 @@
           <a href="https://grip.bastech.app" class="btn-primary">Start for free</a>
           <a href="#features-grip" class="btn-ghost">See features</a>
         </div>
+
+        <!-- Download App button -->
+        <div style="margin-top:16px;">
+          <a href="https://grip.bastech.app" target="_blank" id="pwa-install-btn" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:11px 20px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.12)'">
+            <span style="font-size:22px;">📲</span>
+            <div style="text-align:left;">
+              <div style="font-size:10px;color:var(--slate-400);letter-spacing:0.06em;font-weight:600;text-transform:uppercase;">Add to Home Screen</div>
+              <div style="font-size:14px;font-weight:700;color:var(--white);">Download the App</div>
+            </div>
+          </a>
+        </div>
+
         <div class="hero-trust">
           <div class="hero-trust-dots">
             <div class="dot">👩</div>
@@ -1529,10 +1685,119 @@
 
 </div>
 
+<!-- ========================================
+     TERMS & CONDITIONS PAGE
+======================================== -->
+<div id="page-terms" class="page">
+  <div style="max-width:780px;margin:0 auto;padding:6rem 2rem 5rem;">
+
+    <p class="section-label">Legal</p>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.025em;margin-bottom:0.5rem;line-height:1.15;">Terms &amp; Conditions</h1>
+    <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:3rem;">Last updated: April 2026 &nbsp;·&nbsp; Effective: April 2026</p>
+
+    <div style="display:flex;flex-direction:column;gap:2.5rem;font-size:0.95rem;line-height:1.8;color:var(--text-muted);">
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">1. Agreement to Terms</h2>
+        <p>These Terms and Conditions ("Terms") govern your access to and use of Grip, a personal finance tracking application ("Service") operated by Bastech ("we," "us," or "our"). By creating an account or using the Service in any way, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">2. Description of Service</h2>
+        <p>Grip is a web-based personal finance management tool that allows users to track income, expenses, account balances, recurring payables, and budget goals. The Service is accessed through a web browser and is designed for personal and household use. Grip is not a banking service, financial advisor, or regulated financial institution.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">3. Accounts &amp; Registration</h2>
+        <p>To use Grip, you must create an account with a valid email address and password. You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. You must be at least 18 years old to create an account. You agree to provide accurate, current, and complete information during registration and to update such information as necessary. We reserve the right to terminate accounts that contain false or misleading information.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">4. Subscriptions &amp; Payments</h2>
+        <p style="margin-bottom:0.75rem;">Grip offers both a free plan and a paid subscription plan ("Founding Member"). By subscribing to a paid plan, you agree to the following:</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-left:1rem;">
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Subscription fees are billed on a monthly or annual basis, as selected at checkout.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Payments are processed securely through Lemon Squeezy. We do not store your payment card information.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Subscriptions automatically renew at the end of each billing period unless cancelled before the renewal date.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>You may cancel your subscription at any time from your account settings. Cancellation takes effect at the end of your current billing period.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>All prices are listed in US Dollars (USD) unless otherwise stated.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">5. Refund Policy</h2>
+        <p>We offer a <strong style="color:var(--text);">7-day money-back guarantee</strong> for new paid subscriptions. If you are unsatisfied with the Service within 7 days of your first payment, contact us at <a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a> for a full refund. After 7 days, subscription fees are non-refundable. Refunds are not provided for partial billing periods or unused portions of a subscription.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">6. User Data &amp; Privacy</h2>
+        <p>We take your privacy seriously. All financial data you enter into Grip is stored securely in our database and is used solely to provide the Service to you. We do not sell, rent, or share your personal or financial data with third parties for marketing purposes. Your data is encrypted in transit and at rest. For full details on how we collect, use, and protect your data, please refer to our Privacy Policy.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">7. Acceptable Use</h2>
+        <p style="margin-bottom:0.75rem;">You agree not to:</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;padding-left:1rem;">
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Use the Service for any unlawful purpose or in violation of any applicable laws or regulations.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Attempt to gain unauthorized access to any part of the Service or its underlying infrastructure.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Reverse engineer, decompile, or disassemble any part of the Service.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Use the Service to process, store, or transmit data on behalf of third parties for commercial purposes.</li>
+          <li style="display:flex;gap:0.6rem;"><span style="color:var(--orange);flex-shrink:0;">·</span>Introduce malicious code, viruses, or harmful data into the Service.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">8. Intellectual Property</h2>
+        <p>All content, features, branding, and functionality of the Service — including but not limited to the Bastech and Grip names, logos, software, and design — are the exclusive property of Bastech and are protected by applicable intellectual property laws. You may not copy, modify, distribute, or create derivative works based on the Service without our prior written consent. You retain ownership of all data you input into the Service.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">9. Disclaimers</h2>
+        <p>Grip is a personal finance tracking tool and does not provide financial, investment, tax, or legal advice. All information displayed in the Service is based solely on data you enter. We make no warranties, express or implied, that the Service will meet your requirements, be uninterrupted, error-free, or that any errors will be corrected. The Service is provided "as is" and "as available" without warranty of any kind.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">10. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Bastech shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including but not limited to loss of data, loss of profits, or loss of goodwill — arising from your use of or inability to use the Service. In no event shall our total liability to you exceed the amount you paid to us in the twelve (12) months preceding the claim.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">11. Termination</h2>
+        <p>We reserve the right to suspend or terminate your account at any time, with or without notice, if we reasonably believe you have violated these Terms. You may delete your account at any time by contacting us at <a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a>. Upon termination, your right to use the Service will immediately cease. We may retain certain data as required by law or for legitimate business purposes.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">12. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time. When we do, we will revise the "Last updated" date at the top of this page and, where appropriate, notify you by email. Your continued use of the Service after any changes constitutes your acceptance of the revised Terms. We encourage you to review these Terms periodically.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">13. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising under or related to these Terms shall be resolved through good-faith negotiation. If a dispute cannot be resolved informally, it shall be submitted to binding arbitration or the courts of competent jurisdiction.</p>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">14. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us at:</p>
+        <div style="margin-top:1rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);line-height:2;">
+          <strong style="color:var(--text);">Bastech</strong><br>
+          Email: <a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a><br>
+          Website: <a href="https://bastech.app" style="color:var(--orange);">bastech.app</a>
+        </div>
+      </div>
+
+      <div style="padding-top:1rem;border-top:1px solid var(--border);">
+        <p style="font-size:0.825rem;color:var(--text-dim);">By using Grip, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- ====== FOOTER ====== -->
 <div class="footer-wrap">
   <div class="footer-logo" onclick="navigate('home')">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" height="26" fill="none" style="opacity:0.7;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="130" height="26" fill="none" style="display:block;opacity:0.7;">
   <line x1="2" y1="36" x2="44" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
   <line x1="7" y1="24" x2="39" y2="24" stroke="white" stroke-width="6" stroke-linecap="round"/>
   <line x1="13" y1="12" x2="33" y2="12" stroke="white" stroke-width="6" stroke-linecap="round"/>
@@ -1546,6 +1811,7 @@
     <li><a onclick="navigate('products')">Products</a></li>
     <li><a onclick="navigate('about')">About</a></li>
     <li><a onclick="navigate('contact')">Contact</a></li>
+    <li><a onclick="navigate('terms')">Terms &amp; Conditions</a></li>
     <li><a href="https://grip.bastech.app" target="_blank">Grip App ↗</a></li>
   </ul>
   <p class="footer-copy">© 2026 Bastech. Built with intention.</p>
@@ -1586,11 +1852,41 @@
     return active ? active.id.replace('page-', '') : 'home';
   }
 
-  // ====== FORM ======
-  function handleFormSubmit(e) {
+  // ====== CONTACT FORM ======
+  async function handleFormSubmit(e) {
     e.preventDefault();
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'flex';
+    const form = document.getElementById('contact-form');
+    const btn = form.querySelector('.form-submit');
+    const endpoint = form.getAttribute('action');
+
+    if (!endpoint || endpoint === 'FORMSPREE_ENDPOINT') {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'flex';
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'flex';
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong. Please email support@bastech.app directly.');
+      }
+    } catch (err) {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Could not send. Please email support@bastech.app directly.');
+    }
   }
 
   // ====== INIT ======
