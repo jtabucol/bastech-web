@@ -1168,7 +1168,48 @@
       #page-grip .stats-bar-inner { gap: 16px; }
       #page-grip .stat-value { font-size: 22px; }
     }
-  </style>
+  
+      /* ── FAQ STYLES ── */
+      .faq-item {
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+      }
+      .faq-q {
+        width: 100%;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+        padding: 22px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        transition: color 0.2s;
+      }
+      .faq-q:hover { color: var(--orange); }
+      .faq-icon {
+        font-size: 22px;
+        font-weight: 300;
+        color: var(--orange);
+        flex-shrink: 0;
+        transition: transform 0.25s;
+        line-height: 1;
+      }
+      .faq-icon.open { transform: rotate(45deg); }
+      .faq-a {
+        display: none;
+        color: #8892A4;
+        font-size: 15px;
+        line-height: 1.75;
+        padding-bottom: 24px;
+      }
+      .faq-a.open { display: block; }
+
+</style>
 </head>
 <body>
 
@@ -1710,6 +1751,121 @@
   </section>
 
 
+  <!-- TESTIMONIALS -->
+  <section id="testimonials-grip">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow">Early access feedback</div>
+        <h2 class="section-title">People are already<br />finding their grip.</h2>
+        <p class="section-sub" style="margin:0 auto">Here's what our early users say after their first few weeks with Grip.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:56px;">
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "I used to rely on a notes app and gut feel. Grip showed me we were spending <span class="highlight">₱8,000 more on food</span> than I thought. Now I actually have a number to work with."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f472b6,#a78bfa);">A</div>
+            <div>
+              <div class="testimonial-name">Anna R.</div>
+              <div class="testimonial-role">Working mom of 2, Laguna</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "As a freelancer, my income is never the same month to month. Grip lets me see exactly where I stand — <span class="highlight">no more end-of-month surprises.</span>"
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#60a5fa,#34d399);">M</div>
+            <div>
+              <div class="testimonial-name">Miguel T.</div>
+              <div class="testimonial-role">Freelance designer, Cebu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "My husband and I were always arguing about money because we had different pictures of our finances. Grip gave us <span class="highlight">one shared view. One truth.</span> It changed things."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#f26722);">R</div>
+            <div>
+              <div class="testimonial-name">Reyna S.</div>
+              <div class="testimonial-role">Small business owner, Manila</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq-grip" style="background:#0d0d0d;">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="section-eyebrow">Questions</div>
+        <h2 class="section-title">Quick answers</h2>
+      </div>
+      <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:0;">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is Grip really free?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes — the Free plan is free forever with no expiry date. You get access to all core features: accounts, transactions, budgets, payables, and charts. The only limit is 5 transaction entries per day. Upgrade to Premium anytime to remove that limit.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Does Grip connect to my bank?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">No — and that's intentional. Grip is a manual tracking app, meaning you log your transactions yourself. This keeps it simple, private, and works across all banks, e-wallets, and cash — with no third-party integrations required.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is my financial data safe?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Absolutely. Your data is encrypted in transit and at rest. We use Supabase (enterprise-grade infrastructure) for storage, with row-level security — meaning only you can access your data. We don't sell or share your data with anyone.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I use Grip on my phone?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. Grip is a web app that works on any browser, desktop or mobile. You can also install it on your phone like a native app — tap the share button in Safari (iPhone) or the menu in Chrome (Android) and choose "Add to Home Screen."</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What currencies does Grip support?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Grip supports 15+ currencies including PHP, USD, EUR, GBP, JPY, AUD, CAD, SGD, HKD, KRW, INR, and more. You can set your preferred currency in your profile settings.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I cancel my Premium subscription?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes, anytime. Cancel from your account settings and you'll keep Premium access until the end of your billing period. After that, you'll automatically move to the Free plan — no data is lost. We also offer a 7-day money-back guarantee on new subscriptions.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
 
   <!-- CTA -->
   <section class="cta-section">
@@ -1964,6 +2120,22 @@
       tooltip.style.display = 'none';
     }
   });
+
+
+  // ── FAQ TOGGLE ──
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = answer.classList.contains('open');
+    // Close all open items first
+    document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-icon.open').forEach(i => i.classList.remove('open'));
+    // Open this one if it was closed
+    if (!isOpen) {
+      answer.classList.add('open');
+      icon.classList.add('open');
+    }
+  }
 
   // ====== INIT ======
   document.addEventListener('DOMContentLoaded', () => {
