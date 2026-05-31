@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bastech — Built for People</title>
+  <title>Bastech | Software Built for Real People</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -311,6 +311,7 @@
     }
     .tag-live { background: rgba(34,197,94,0.12); color: #4ADE80; border: 1px solid rgba(34,197,94,0.28); }
     .tag-soon { background: rgba(148,163,184,0.08); color: var(--text-dim); border: 1px solid var(--border); }
+    .tag-dev { background: rgba(99,102,241,0.12); color: #818cf8; border: 1px solid rgba(99,102,241,0.28); }
 
     .product-name { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
     .product-name span { color: var(--orange); }
@@ -323,6 +324,10 @@
     .coming-soon-card { min-height: 200px; justify-content: center; opacity: 0.5; }
     .coming-soon-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-dim); margin-bottom: 0.5rem; }
     .coming-soon-card p { font-size: 0.875rem; color: var(--text-dim); line-height: 1.6; }
+    .lunas-card { background: linear-gradient(135deg, #0f1020 0%, #131528 100%); border-color: rgba(99,102,241,0.2); }
+    .lunas-card:hover { border-color: rgba(99,102,241,0.4); }
+    .lunas-card .product-name span { color: #818cf8; }
+    .lunas-card .feature-list li::before { background: #818cf8; }
 
     /* ====== ABOUT PAGE ====== */
     .about-intro-strip {
@@ -363,7 +368,7 @@
     .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.1rem; margin-top: 3rem; }
     .value-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; }
     .value-card:hover { border-color: rgba(249,115,22,0.25); transform: translateY(-3px); }
-    .value-emoji { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .value-emoji { width:36px;height:36px;margin-bottom:1rem;color:var(--orange); } .value-emoji svg { width:36px;height:36px; }
     .value-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
     .value-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
 
@@ -1163,7 +1168,488 @@
       #page-grip .stats-bar-inner { gap: 16px; }
       #page-grip .stat-value { font-size: 22px; }
     }
-  </style>
+  
+      /* ── FAQ STYLES ── */
+      .faq-item {
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+      }
+      .faq-q {
+        width: 100%;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+        padding: 22px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        transition: color 0.2s;
+      }
+      .faq-q:hover { color: var(--orange); }
+      .faq-icon {
+        font-size: 22px;
+        font-weight: 300;
+        color: var(--orange);
+        flex-shrink: 0;
+        transition: transform 0.25s;
+        line-height: 1;
+      }
+      .faq-icon.open { transform: rotate(45deg); }
+      .faq-a {
+        display: none;
+        color: #8892A4;
+        font-size: 15px;
+        line-height: 1.75;
+        padding-bottom: 24px;
+      }
+      .faq-a.open { display: block; }
+
+
+    /* ══════════════════════════════════════════
+       LUNAS PRODUCT PAGE — scoped under #page-lunas
+       Brand color: Indigo #6366f1 / #818cf8
+    ══════════════════════════════════════════ */
+
+    #page-lunas .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 64px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #page-lunas .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #page-lunas .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #page-lunas .hero-inner {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    #page-lunas .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #818cf8;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+
+    #page-lunas .hero-badge::before {
+      content: '●';
+      font-size: 8px;
+      animation: lunas-pulse 2s infinite;
+    }
+
+    @keyframes lunas-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    #page-lunas h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    #page-lunas h1 .accent { color: #6366f1; }
+
+    #page-lunas .hero-sub {
+      font-size: 18px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 520px;
+      text-align: justify;
+    }
+
+    #page-lunas .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #page-lunas .btn-primary {
+      background: #6366f1;
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    #page-lunas .btn-primary:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(99,102,241,0.45);
+    }
+
+    #page-lunas .btn-ghost {
+      color: var(--slate-200);
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    #page-lunas .btn-ghost:hover { color: var(--white); }
+    #page-lunas .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+    #page-lunas .btn-ghost:hover::after { transform: translateX(4px); }
+
+    #page-lunas .hero-trust {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--slate-400);
+    }
+
+    #page-lunas .hero-trust-dots { display: flex; }
+
+    #page-lunas .dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--slate-700);
+      border: 2px solid var(--slate-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-left: -6px;
+    }
+
+    #page-lunas .dot:first-child { margin-left: 0; }
+
+    #page-lunas .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+
+    #page-lunas .phone-wrap { position: relative; }
+
+    #page-lunas .phone-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #page-lunas .phone {
+      width: 220px;
+      background: var(--slate-800);
+      border-radius: 36px;
+      border: 2px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    #page-lunas .phone-notch {
+      width: 80px; height: 24px;
+      background: var(--slate-900);
+      border-radius: 0 0 16px 16px;
+      margin: 0 auto 16px;
+    }
+
+    #page-lunas .phone-inner { padding: 0 16px 24px; }
+
+    #page-lunas .phone-header-card {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #page-lunas .phone-header-card::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    #page-lunas .phone-header-label { font-size: 9px; color: rgba(255,255,255,0.7); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+    #page-lunas .phone-header-amount { font-size: 20px; font-weight: 900; color: white; letter-spacing: -1px; margin: 3px 0; }
+    #page-lunas .phone-header-sub { font-size: 10px; color: rgba(255,255,255,0.65); }
+
+    #page-lunas .phone-section-title { font-size: 10px; font-weight: 700; color: var(--slate-400); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; }
+
+    #page-lunas .borrower-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+
+    #page-lunas .borrower-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    #page-lunas .borrower-info { flex: 1; }
+    #page-lunas .borrower-name { font-size: 11px; font-weight: 600; color: var(--white); }
+    #page-lunas .borrower-due { font-size: 9px; color: var(--slate-400); }
+
+    #page-lunas .status-badge {
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 100px;
+      letter-spacing: 0.3px;
+    }
+
+    #page-lunas .status-paid { background: rgba(34,197,94,0.15); color: #4ade80; }
+    #page-lunas .status-due { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    #page-lunas .status-overdue { background: rgba(239,68,68,0.15); color: #f87171; }
+
+    #page-lunas .stats-bar {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 48px;
+    }
+
+    #page-lunas .stats-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    #page-lunas .stat-item { text-align: center; }
+    #page-lunas .stat-value { font-size: 32px; font-weight: 900; color: #6366f1; letter-spacing: -1px; }
+    #page-lunas .stat-label { font-size: 13px; color: var(--slate-400); margin-top: 2px; font-weight: 500; }
+
+    #page-lunas section { padding: 100px 48px; }
+    #page-lunas .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    #page-lunas .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6366f1;
+      margin-bottom: 12px;
+    }
+
+    #page-lunas .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    #page-lunas .section-sub {
+      font-size: 17px;
+      color: var(--slate-400);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    #page-lunas #features-lunas { background: var(--slate-800); }
+    #page-lunas .features-header { margin-bottom: 60px; }
+
+    #page-lunas .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    #page-lunas .feature-card {
+      background: var(--slate-900);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    #page-lunas .feature-card:hover {
+      border-color: rgba(99,102,241,0.3);
+      transform: translateY(-4px);
+    }
+
+    #page-lunas .feature-icon {
+      width: 48px; height: 48px;
+      background: rgba(99,102,241,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    #page-lunas .feature-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    #page-lunas .feature-desc { font-size: 14px; color: var(--slate-400); line-height: 1.6; }
+
+    #page-lunas .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    #page-lunas .how-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 1px;
+      background: linear-gradient(to right, #6366f1, transparent);
+    }
+
+    #page-lunas .how-step { text-align: center; }
+
+    #page-lunas .how-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #6366f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: white;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #page-lunas .how-step:not(:first-child) .how-number {
+      background: var(--slate-700);
+      color: var(--slate-200);
+    }
+
+    #page-lunas .how-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    #page-lunas .how-desc { font-size: 13px; color: var(--slate-400); line-height: 1.6; }
+
+    #page-lunas .cta-section {
+      text-align: center;
+      padding: 100px 48px;
+      background: var(--slate-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #page-lunas .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #page-lunas .cta-section .section-title { font-size: clamp(36px, 5vw, 56px); }
+    #page-lunas .cta-sub { font-size: 18px; color: var(--slate-400); margin: 16px auto 40px; max-width: 480px; line-height: 1.6; }
+    #page-lunas .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    #page-lunas .cta-note { margin-top: 20px; font-size: 13px; color: var(--slate-400); }
+
+    #page-lunas .testimonial-card {
+      background: var(--slate-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    #page-lunas .testimonial-quote { font-size: 16px; font-weight: 500; line-height: 1.7; color: var(--slate-200); margin-bottom: 20px; }
+    #page-lunas .testimonial-quote .highlight { color: #818cf8; font-weight: 700; }
+    #page-lunas .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    #page-lunas .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    #page-lunas .testimonial-name { font-weight: 700; font-size: 15px; }
+    #page-lunas .testimonial-role { font-size: 12px; color: var(--slate-400); }
+
+    /* Lunas page responsive */
+    @media (max-width: 768px) {
+      #page-lunas .hero { padding: 40px 24px 48px; min-height: unset; }
+      #page-lunas .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      #page-lunas .hero-visual { display: none; }
+      #page-lunas h1 { font-size: 36px; }
+      #page-lunas .hero-sub { font-size: 16px; }
+      #page-lunas section { padding: 64px 24px; }
+      #page-lunas .features-grid { grid-template-columns: 1fr; }
+      #page-lunas .how-grid { grid-template-columns: repeat(2, 1fr); }
+      #page-lunas .how-grid::before { display: none; }
+      #page-lunas .stats-bar { padding: 28px 20px; }
+      #page-lunas .stats-bar-inner { gap: 32px; }
+      #page-lunas .stat-value { font-size: 26px; }
+      #page-lunas .cta-section { padding: 56px 20px; }
+      #page-lunas .cta-section .section-title { font-size: 28px; }
+      #page-lunas > div:first-child { padding: 12px 20px 0; }
+    }
+
+    @media (max-width: 480px) {
+      #page-lunas h1 { font-size: 32px; }
+      #page-lunas .how-grid { grid-template-columns: 1fr; }
+      #page-lunas .stats-bar-inner { gap: 16px; }
+      #page-lunas .stat-value { font-size: 22px; }
+    }
+
+</style>
 </head>
 <body>
 
@@ -1204,9 +1690,9 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-glow"></div>
-    <div class="hero-badge">🧡 </div>
+    <div class="hero-badge">Now Available</div>
     <h1>Software Built for<br><span class="highlight">Real People</span></h1>
-    <p>Bastech creates practical, thoughtfully designed tools that help everyday individuals and families take control of their lives — starting with their finances.</p>
+    <p>Bastech creates practical, thoughtfully designed tools that help everyday individuals and families take control of their finances and their lives.</p>
     <div class="hero-actions">
       <a onclick="navigate('products')" class="btn-primary">See Our Products</a>
       <a onclick="navigate('about')"    class="btn-secondary">Our Story</a>
@@ -1223,19 +1709,19 @@
 
     <div class="pillars">
       <div class="pillar-card fade-in">
-        <div class="pillar-icon">🎯</div>
+        <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Purpose-Built</h3>
-        <p>Every product starts with a real problem — not a trend. We build things that solve something genuine, without bloating them with features that get in the way.</p>
+        <p>Every product starts with a real problem. We build things that solve something genuine, without bloating them with features that get in the way.</p>
       </div>
       <div class="pillar-card fade-in">
-        <div class="pillar-icon">🔓</div>
+        <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></div>
         <h3>Accessible First</h3>
-        <p>Our tools are designed to be used by anyone — no financial background, no technical expertise required. If it's confusing, it isn't finished.</p>
+        <p>Our tools are designed for anyone. No financial background, no technical expertise required. Simple enough to actually use.</p>
       </div>
       <div class="pillar-card fade-in">
-        <div class="pillar-icon">🏗️</div>
+        <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
         <h3>Built to Last</h3>
-        <p>We don't ship and disappear. Bastech products are maintained, improved, and supported — because your trust is worth keeping long-term.</p>
+        <p>Bastech products are maintained, improved, and supported. We ship and keep showing up, because your trust matters long-term.</p>
       </div>
     </div>
   </section>
@@ -1245,18 +1731,28 @@
   <!-- Featured Product -->
   <section>
     <p class="section-label">Our Products</p>
-    <h2 class="section-title">Currently live</h2>
-    <p class="section-subtitle" style="margin-bottom:2.5rem;">The first product from Bastech is here — and it's built around you.</p>
+    <h2 class="section-title">What we've built</h2>
+    <p class="section-subtitle" style="margin-bottom:2.5rem;">Grip is live and free to use. Lunas is in development. More on the way.</p>
 
     <div class="product-strip fade-in">
       <div class="product-strip-content">
         <div class="product-tag tag-live" style="margin-bottom:1rem;">● Live Now</div>
         <h3><span>Grip</span> — Personal Finance App</h3>
-        <p>Track accounts, log transactions, manage bills, and budget smarter. Grip gives everyday people a clear, calm view of their money — without the overwhelming complexity.</p>
+        <p>Track accounts, log transactions, manage bills, and budget smarter. Grip gives everyday people a clear view of their money without the complexity.</p>
       </div>
       <div class="strip-actions">
-        <button onclick="navigate('grip')" class="btn-primary" style="text-align:center;">Learn More →</button>
-        <a onclick="navigate('products')" class="btn-secondary" style="text-align:center;">Learn More</a>
+        <button onclick="navigate('grip')" class="btn-primary" style="text-align:center;">Explore Grip →</button>
+        <button onclick="navigate('products')" class="btn-secondary" style="text-align:center;">All Products</button>
+      </div>
+    </div>
+    <div class="product-strip fade-in" style="margin-top:1rem;background:linear-gradient(135deg,#0f1020,#131528);border-color:rgba(99,102,241,0.2);">
+      <div class="product-strip-content">
+        <div class="product-tag tag-dev" style="margin-bottom:1rem;">● In Development</div>
+        <h3><span style="color:#818cf8">Lunas</span> — Lending Management App</h3>
+        <p>A tool for small lenders in the Philippines. Manage borrowers, loans, and payment schedules in one place. Currently in private beta.</p>
+      </div>
+      <div class="strip-actions">
+        <button onclick="navigate('products')" class="btn-secondary" style="text-align:center;">Learn More →</button>
       </div>
     </div>
   </section>
@@ -1271,7 +1767,7 @@
   <div class="page-header">
     <p class="section-label">Products</p>
     <h1>What We've Built</h1>
-    <p>Practical tools for real life. Each product is designed with care, built to last, and made for people — not investors.</p>
+    <p>Practical tools for real life. Each product is designed with care, built to last, and made for the people who use them.</p>
   </div>
 
   <div class="products-grid">
@@ -1286,7 +1782,7 @@
       <div class="product-card-right">
         <p style="font-size:0.73rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;">What's Inside</p>
         <ul class="feature-list">
-          <li>Multi-account tracking — Cash, bank, e-wallet, credit</li>
+          <li>Multi-account tracking: cash, bank, e-wallet, credit</li>
           <li>Transaction logging with full history</li>
           <li>Payables manager with skip-month &amp; active-months logic</li>
           <li>Budget planner by category</li>
@@ -1296,17 +1792,28 @@
       </div>
     </div>
 
-    <!-- Coming Soon -->
-    <div class="product-card coming-soon-card fade-in">
-      <div class="product-tag tag-soon">Coming Soon</div>
-      <h3>Next Product</h3>
-      <p>Something new is in the works. Bastech is always thinking about the next real problem worth solving.</p>
+    <!-- Lunas — In Development -->
+    <div class="product-card lunas-card fade-in">
+      <div class="product-tag tag-dev">● In Development</div>
+      <div class="product-name">Lunas <span>App</span></div>
+      <p class="product-tagline">A lending management tool for small lenders in the Philippines. Track borrowers, loans, payment schedules, and collections. No more spreadsheet chaos.</p>
+      <ul class="feature-list">
+        <li>Borrower and loan management</li>
+        <li>Auto-generated payment schedules</li>
+        <li>Partial payments and late fee tracking</li>
+        <li>Interest waiver support</li>
+        <li>Separate portals for staff and borrowers</li>
+      </ul>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
+        <span style="font-size:0.8rem;color:var(--text-dim);">Currently in private beta. Public launch coming soon.</span>
+        <button onclick="navigate('lunas')" style="background:#6366f1;color:white;border:none;padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background 0.2s;white-space:nowrap;margin-left:12px;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Learn More →</button>
+      </div>
     </div>
 
     <div class="product-card coming-soon-card fade-in">
-      <div class="product-tag tag-soon">Future</div>
+      <div class="product-tag tag-soon">On the Roadmap</div>
       <h3>More to Come</h3>
-      <p>Bastech's roadmap is driven by people, not trends. Stay tuned for what comes next.</p>
+      <p>Bastech's roadmap is built around real problems. More products are planned.</p>
     </div>
   </div>
 
@@ -1318,22 +1825,22 @@
 <div id="page-about" class="page">
   <section>
     <div class="about-intro-strip">
-      🧡 &nbsp;Bastech — Built for everyone
+      Bastech — Built for everyone
     </div>
 
     <div class="about-story">
       <div>
         <p class="section-label">Our Story</p>
         <h2 class="section-title">The name means something</h2>
-        <p>Bastech was founded with a simple belief: people deserve software that works for them — not around them. The name itself is personal, rooted in meaning, and built to last.</p>
-        <p>The company started not with investors or a business plan, but with a frustration — the kind that comes from using tools that almost solve your problem, but never quite get there. Grip was the answer to that frustration.</p>
+        <p>Bastech was founded on a simple belief: people deserve software that works for them. The name itself is personal, rooted in meaning, and built to last.</p>
+        <p>It started with a frustration: using tools that almost solve your problem but never quite get there. Grip was the answer to that.</p>
         <p>We're a small, focused company building products for the everyday individual. No enterprise pitch decks. No buzzwords. Just software that makes life a little easier.</p>
       </div>
       <div class="about-stat-box">
         <div class="stat-row">
           <div class="stat-item">
             <div class="stat-num">1</div>
-            <div class="stat-label">Live product — and growing</div>
+            <div class="stat-label">Live product, growing</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">PH</div>
@@ -1358,15 +1865,15 @@
     <div class="mvg-grid">
       <div class="mvg-card fade-in">
         <h3>Mission</h3>
-        <p>To build practical, beautifully simple software that empowers everyday individuals and families to understand and manage their lives — starting with their finances.</p>
+        <p>Build practical, beautifully simple software that helps everyday individuals and families understand and manage their finances and their lives.</p>
       </div>
       <div class="mvg-card fade-in">
         <h3>Vision</h3>
-        <p>A world where powerful personal tools aren't reserved for the wealthy or technically sophisticated — where great software is accessible to everyone, everywhere.</p>
+        <p>Powerful personal tools that aren't reserved for the wealthy or the technically sophisticated. Great software, accessible to everyone.</p>
       </div>
       <div class="mvg-card fade-in">
         <h3>Goals</h3>
-        <p>To grow Bastech into a suite of purpose-built products, each solving a real problem with clarity and care — and to build a community of users who trust us with what matters most to them.</p>
+        <p>Grow Bastech into a suite of focused products, each solving a real problem. Build something people genuinely trust with what matters most to them.</p>
       </div>
     </div>
   </section>
@@ -1380,22 +1887,22 @@
 
     <div class="values-grid">
       <div class="value-card fade-in">
-        <div class="value-emoji">🎯</div>
+        <div class="value-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><line x1="5" y1="12" x2="19" y2="12"/><line x1="5" y1="7" x2="19" y2="7"/><line x1="5" y1="17" x2="13" y2="17"/></svg></div>
         <h4>Simplicity</h4>
         <p>We remove everything that doesn't need to be there. Clarity over cleverness, always.</p>
       </div>
       <div class="value-card fade-in">
-        <div class="value-emoji">🤝</div>
+        <div class="value-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h4>Honesty</h4>
         <p>No dark patterns, no hidden fees, no misleading copy. What you see is what you get.</p>
       </div>
       <div class="value-card fade-in">
-        <div class="value-emoji">💎</div>
+        <div class="value-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h4>Quality</h4>
         <p>We'd rather ship one great thing than five mediocre ones. Every detail is intentional.</p>
       </div>
       <div class="value-card fade-in">
-        <div class="value-emoji">❤️</div>
+        <div class="value-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <h4>People First</h4>
         <p>Our users aren't metrics. They're people, and we build with that responsibility in mind.</p>
       </div>
@@ -1416,24 +1923,24 @@
   <div class="contact-layout">
     <div class="contact-info">
       <h2>Let's talk</h2>
-      <p>Whether you're a potential user, a partner, or just curious about what we're building — reach out. We read every message.</p>
+      <p>Whether you're a potential user, a partner, or just curious about what we're building, reach out. We read every message.</p>
       <div class="contact-detail">
         <div class="contact-item">
-          <div class="contact-icon">✉️</div>
+          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <span>Email</span>
             <strong><a href="mailto:support@bastech.app" style="color:var(--orange);text-decoration:none">support@bastech.app</a></strong>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">📍</div>
+          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <span>Location</span>
             <strong>Manila</strong>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">🚀</div>
+          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
           <div>
             <span>Current Product</span>
             <strong>grip.bastech.app</strong>
@@ -1471,7 +1978,7 @@
         <button type="submit" class="form-submit">Send Message →</button>
       </form>
       <div class="form-success" id="form-success">
-        <div class="success-icon">🧡</div>
+        <div class="success-icon" style="color:var(--orange);width:40px;height:40px;margin:0 auto 1rem;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><polyline points="20 6 9 17 4 12"/></svg></div>
         <h3>Message sent!</h3>
         <p>Thanks for reaching out. We'll get back to you within 24–48 hours.</p>
       </div>
@@ -1507,7 +2014,7 @@
         <div style="margin-top:16px;position:relative;display:inline-block;" id="pwa-btn-wrap">
 
           <button id="pwa-install-btn" onclick="handleInstallClick()" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:11px 20px;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='rgba(255,255,255,0.12)'">
-            <span style="font-size:22px;">📲</span>
+            <span style="font-size:22px;">⬆</span>
             <div style="text-align:left;">
               <div style="font-size:10px;color:var(--slate-400);letter-spacing:0.06em;font-weight:600;text-transform:uppercase;">Free · No App Store needed</div>
               <div style="font-size:14px;font-weight:700;color:var(--white);">Download the App</div>
@@ -1530,10 +2037,10 @@
 
         <div class="hero-trust">
           <div class="hero-trust-dots">
-            <div class="dot">👩</div>
-            <div class="dot">👨</div>
-            <div class="dot">👩</div>
-            <div class="dot">👨</div>
+            <div class="dot" style="background:#4ade80;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">A</div>
+            <div class="dot" style="background:#60a5fa;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">R</div>
+            <div class="dot" style="background:#f472b6;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">M</div>
+            <div class="dot" style="background:#a78bfa;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">J</div>
           </div>
           <span>Built for real families. No card required.</span>
         </div>
@@ -1560,17 +2067,17 @@
               </div>
               <div class="phone-section-title">Recent Activity</div>
               <div class="phone-txn">
-                <div class="phone-txn-icon txn-green">💼</div>
+<div class="phone-txn-icon txn-green" style="display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
                 <div class="phone-txn-info"><div class="phone-txn-name">Monthly Salary</div><div class="phone-txn-date">Mar 30</div></div>
                 <div class="phone-txn-amount pos">+₱52,000</div>
               </div>
               <div class="phone-txn">
-                <div class="phone-txn-icon txn-red">🛒</div>
+<div class="phone-txn-icon txn-red" style="display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
                 <div class="phone-txn-info"><div class="phone-txn-name">Groceries</div><div class="phone-txn-date">Mar 28</div></div>
                 <div class="phone-txn-amount neg">-₱4,200</div>
               </div>
               <div class="phone-txn">
-                <div class="phone-txn-icon txn-blue">📲</div>
+<div class="phone-txn-icon txn-blue" style="display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                 <div class="phone-txn-info"><div class="phone-txn-name">Electric Bill</div><div class="phone-txn-date">Mar 25</div></div>
                 <div class="phone-txn-amount neg">-₱3,100</div>
               </div>
@@ -1610,15 +2117,15 @@
       <div class="features-header">
         <div class="section-eyebrow">Everything you need</div>
         <h2 class="section-title">Built for how families<br />actually manage money</h2>
-        <p class="section-sub">Not a banking app. Not a spreadsheet. Grip is the middle ground — simple enough to actually use, powerful enough to make a difference.</p>
+        <p class="section-sub">Not a banking app. Not a spreadsheet. Grip is the middle ground: simple enough to actually use, powerful enough to make a difference.</p>
       </div>
       <div class="features-grid">
-        <div class="feature-card"><div class="feature-icon">💰</div><div class="feature-title">Income Tracking</div><div class="feature-desc">Log salaries, freelance income, side hustles — all sources in one place. Know exactly what's coming in each month.</div></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title">Expense Logging</div><div class="feature-desc">Record every peso spent with categories, accounts, and dates. Edit or delete entries anytime — no locked history.</div></div>
-        <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-title">Budget Goals</div><div class="feature-desc">Set monthly limits per category and watch color-coded progress bars tell you where you stand at a glance.</div></div>
-        <div class="feature-card"><div class="feature-icon">📋</div><div class="feature-title">Payables Tracker</div><div class="feature-desc">Never miss a bill. Schedule recurring payables, mark them paid (with account tracking), skip months when needed.</div></div>
-        <div class="feature-card"><div class="feature-icon">🏦</div><div class="feature-title">Account Management</div><div class="feature-desc">Track cash, bank accounts, credit cards, e-wallets, and investments — all with live balance updates.</div></div>
-        <div class="feature-card"><div class="feature-icon">👨‍👩‍👧</div><div class="feature-title">Household Sharing</div><div class="feature-desc">Invite your partner or family members. Everyone sees the same picture. One household, one financial truth.</div></div>
+        <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="feature-title">Income Tracking</div><div class="feature-desc">Log salaries, freelance income, side hustles. All sources in one place so you know exactly what's coming in each month.</div></div>
+        <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="feature-title">Expense Logging</div><div class="feature-desc">Record every peso spent with categories, accounts, and dates. Edit or delete entries anytime. No locked history.</div></div>
+        <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div><div class="feature-title">Budget Goals</div><div class="feature-desc">Set monthly limits per category and watch color-coded progress bars tell you where you stand at a glance.</div></div>
+        <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div><div class="feature-title">Payables Tracker</div><div class="feature-desc">Never miss a bill. Schedule recurring payables, mark them paid (with account tracking), skip months when needed.</div></div>
+        <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="feature-title">Account Management</div><div class="feature-desc">Track cash, bank accounts, credit cards, e-wallets, and investments, all with live balance updates.</div></div>
+        <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="feature-title">Household Sharing</div><div class="feature-desc">Invite your partner or family members. Everyone sees the same picture. One household, one financial truth.</div></div>
       </div>
     </div>
   </section>
@@ -1633,9 +2140,9 @@
       </div>
       <div class="how-grid">
         <div class="how-step"><div class="how-number">1</div><div class="how-title">Create your account</div><div class="how-desc">Sign up free with your email. No credit card, no setup fees. Takes 30 seconds.</div></div>
-        <div class="how-step"><div class="how-number">2</div><div class="how-title">Set up your household</div><div class="how-desc">Add your accounts — cash, bank, GCash, credit card. Enter your opening balances.</div></div>
+        <div class="how-step"><div class="how-number">2</div><div class="how-title">Set up your household</div><div class="how-desc">Add your accounts: cash, bank, GCash, credit card. Enter your opening balances.</div></div>
         <div class="how-step"><div class="how-number">3</div><div class="how-title">Log your money</div><div class="how-desc">Add income and expenses as they happen. Set your monthly budgets per category.</div></div>
-        <div class="how-step"><div class="how-number">4</div><div class="how-title">See the full picture</div><div class="how-desc">Your dashboard, charts, and budget tracker update instantly. Stay in grip — always.</div></div>
+        <div class="how-step"><div class="how-number">4</div><div class="how-title">See the full picture</div><div class="how-desc">Your dashboard, charts, and budget tracker update instantly. Your full financial picture, in one place.</div></div>
       </div>
     </div>
   </section>
@@ -1649,41 +2156,159 @@
         <p class="section-sub" style="margin:0 auto">No hidden fees. Cancel anytime. Your data is always yours.</p>
       </div>
       <div class="pricing-grid">
+
+        <!-- FREE -->
         <div class="pricing-card">
           <div class="pricing-name">Free</div>
           <div class="pricing-price">$0</div>
           <div class="pricing-period">Forever free</div>
           <ul class="pricing-features">
-            <li>1 household</li><li>Unlimited transactions</li><li>All account types</li><li>Budget tracking</li><li>Payables &amp; bills</li><li>15+ currencies</li>
+            <li>Up to 5 transaction entries per day</li>
+            <li>All account types: bank, cash, e-wallet, credit</li>
+            <li>Full transaction history</li>
+            <li>Income vs expense charts</li>
+            <li>Payables &amp; bills tracker</li>
+            <li>Budget goals &amp; categories</li>
+            <li>15+ currencies</li>
           </ul>
           <a href="https://grip.bastech.app" class="pricing-btn pricing-btn-default">Get started free</a>
         </div>
+
+        <!-- PAID -->
         <div class="pricing-card featured">
-          <div class="pricing-badge">🔥 Founding Member</div>
+          <div class="pricing-badge">Best Value</div>
           <div class="pricing-name">Premium</div>
-          <div class="pricing-price"><span>$</span>4</div>
-          <div class="pricing-period">per month — lock in this rate forever</div>
+          <div class="pricing-price"><span>$</span>2.99</div>
+          <div class="pricing-period">per month · or $19.99/yr (save 44%)</div>
           <ul class="pricing-features">
-            <li>Everything in Free</li><li>Up to 5 household members</li><li>Full transaction history</li><li>Income vs expense charts</li><li>Category pie charts</li><li>Priority support</li>
+            <li>Unlimited transaction entries per day</li>
+            <li>Everything in Free</li>
+            <li>No daily limits, ever</li>
+            <li>Priority support</li>
           </ul>
-          <a href="https://grip.bastech.app" class="pricing-btn pricing-btn-featured">Claim founding rate</a>
+          <a href="https://grip.bastech.app" class="pricing-btn pricing-btn-featured">Upgrade to Premium</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL -->
-  <section class="testimonial-section">
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials-grip">
     <div class="section-inner">
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"Finally an app that doesn't need a <span class="highlight">finance degree</span> to use. I can see exactly where we're overspending and fix it the same day."</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">J</div>
-          <div><div class="testimonial-name">July T.</div><div class="testimonial-role">Early user · Manila, PH</div></div>
+      <div style="text-align:center">
+        <div class="section-eyebrow">Early access feedback</div>
+        <h2 class="section-title">People are already<br />finding their grip.</h2>
+        <p class="section-sub" style="margin:0 auto">Here's what our early users say after their first few weeks with Grip.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:56px;">
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "I used to rely on a notes app and gut feel. Grip showed me we were spending <span class="highlight">₱8,000 more on food</span> than I thought. Now I actually have a number to work with."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f472b6,#a78bfa);">A</div>
+            <div>
+              <div class="testimonial-name">Anna R.</div>
+              <div class="testimonial-role">Working mom of 2, Laguna</div>
+            </div>
+          </div>
         </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "As a freelancer, my income is never the same month to month. Grip lets me see exactly where I stand — <span class="highlight">no more end-of-month surprises.</span>"
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#60a5fa,#34d399);">M</div>
+            <div>
+              <div class="testimonial-name">Miguel T.</div>
+              <div class="testimonial-role">Freelance designer, Cebu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "My husband and I were always arguing about money because we had different pictures of our finances. Grip gave us <span class="highlight">one shared view. One truth.</span> It changed things."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#f26722);">R</div>
+            <div>
+              <div class="testimonial-name">Reyna S.</div>
+              <div class="testimonial-role">Small business owner, Manila</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <section id="faq-grip" style="background:#0d0d0d;">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="section-eyebrow">Questions</div>
+        <h2 class="section-title">Quick answers</h2>
+      </div>
+      <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:0;">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is Grip really free?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes — the Free plan is free forever with no expiry date. You get access to all core features: accounts, transactions, budgets, payables, and charts. The only limit is 5 transaction entries per day. Upgrade to Premium anytime to remove that limit — at $2.99/month, it's less than a cup of coffee. Barely a dent, but the clarity it gives your finances? Priceless.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Does Grip connect to my bank?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">No — and that's intentional. Grip is a manual tracking app, meaning you log your transactions yourself. This keeps it simple, private, and works across all banks, e-wallets, and cash — with no third-party integrations required.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is my financial data safe?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Absolutely. Your data is encrypted in transit and at rest. We use Supabase (enterprise-grade infrastructure) for storage, with row-level security — meaning only you can access your data. We don't sell or share your data with anyone.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I use Grip on my phone?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. Grip is a web app that works on any browser, desktop or mobile. You can also install it on your phone like a native app — tap the share button in Safari (iPhone) or the menu in Chrome (Android) and choose "Add to Home Screen."</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What currencies does Grip support?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Grip supports 15+ currencies including PHP, USD, EUR, GBP, JPY, AUD, CAD, SGD, HKD, KRW, INR, and more. You can set your preferred currency in your profile settings.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I cancel my Premium subscription?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes, anytime. Cancel from your account settings and you'll keep Premium access until the end of your billing period. After that, you'll automatically move to the Free plan — no data is lost. We also offer a 7-day money-back guarantee on new subscriptions.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
 
   <!-- CTA -->
   <section class="cta-section">
@@ -1694,6 +2319,239 @@
         <a href="https://grip.bastech.app" class="btn-primary" style="font-size:17px; padding:16px 32px;">Start for free →</a>
       </div>
       <div class="cta-note">No credit card · No setup · Works on any device</div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ========================================
+     LUNAS PRODUCT PAGE
+======================================== -->
+<div id="page-lunas" class="page">
+
+  <!-- Back button -->
+  <div style="padding:16px 48px 0;">
+    <button onclick="navigate('products')" style="background:none;border:none;color:#8892A4;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8892A4'">
+      ← Back to Products
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Now in Private Beta</div>
+        <h1>Lending made<br /><span class="accent">simple.</span></h1>
+        <p class="hero-sub">Stop managing loans in spreadsheets and notebooks. Lunas gives small lenders one organized system to track borrowers, loans, and collections — all from your phone.</p>
+        <div class="hero-actions">
+          <a href="mailto:support@bastech.app?subject=Lunas Early Access Request" class="btn-primary">Request Early Access</a>
+          <a href="#features-lunas" class="btn-ghost">See features</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-dots">
+            <div class="dot" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">M</div>
+            <div class="dot" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">J</div>
+          </div>
+          <span>Early lenders already testing. Be next.</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-wrap">
+          <div class="phone-glow"></div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-inner">
+              <!-- Summary card -->
+              <div class="phone-header-card">
+                <div class="phone-header-label">Total Outstanding</div>
+                <div class="phone-header-amount">₱84,500</div>
+                <div class="phone-header-sub">6 active loans · 2 due this week</div>
+              </div>
+              <!-- Borrower list -->
+              <div class="phone-section-title">Borrowers</div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(99,102,241,0.2);color:#818cf8;">R</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Rosa Mendoza</div>
+                  <div class="borrower-due">Due Jun 5 · ₱4,500</div>
+                </div>
+                <span class="status-badge status-due">DUE</span>
+              </div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(34,197,94,0.15);color:#4ade80;">A</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Allan Santos</div>
+                  <div class="borrower-due">Paid May 30 · ₱3,200</div>
+                </div>
+                <span class="status-badge status-paid">PAID</span>
+              </div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(239,68,68,0.15);color:#f87171;">B</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Beth Reyes</div>
+                  <div class="borrower-due">Overdue 3 days · ₱5,000</div>
+                </div>
+                <span class="status-badge status-overdue">LATE</span>
+              </div>
+              <!-- Collection bar -->
+              <div class="phone-section-title" style="margin-top:12px">May Collections</div>
+              <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:4px;">
+                <div style="width:72%;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:3px;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--slate-400);">
+                <span>₱30,600 collected</span><span>72% of target</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Mobile-first</div></div>
+      <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Spreadsheets needed</div></div>
+      <div class="stat-item"><div class="stat-value">∞</div><div class="stat-label">Borrowers &amp; loans</div></div>
+      <div class="stat-item"><div class="stat-value">PH</div><div class="stat-label">Built for Filipino lenders</div></div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features-lunas">
+    <div class="section-inner">
+      <div class="features-header">
+        <div class="section-eyebrow">Everything you need</div>
+        <h2 class="section-title">Built for how small lenders<br />actually work</h2>
+        <p class="section-sub">Not a bank. Not a spreadsheet. Lunas is the middle ground — simple enough to use daily, powerful enough to run your whole lending operation.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="feature-title">Borrower Management</div>
+          <div class="feature-desc">Add and manage all your borrowers in one place. Name, contact, address, and full loan history — always within reach.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="feature-title">Loan Tracking</div>
+          <div class="feature-desc">Create loans with custom principal, interest rate, and terms. Each loan is tracked separately with its own complete history.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="feature-title">Auto-Generated Schedules</div>
+          <div class="feature-desc">Payment schedules are created automatically when a loan is set up. Principal and interest calculated per period — no manual math needed.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </div>
+          <div class="feature-title">Partial Payments</div>
+          <div class="feature-desc">Record payments of any amount. Lunas tracks what was paid, what's still owed, and marks each period accordingly — no double-counting.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="feature-title">Late Fees &amp; Waivers</div>
+          <div class="feature-desc">Charge late fees when you choose. Waive them when circumstances call for it. Every decision is logged — who did it, when, and why.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="feature-title">Staff &amp; Borrower Portals</div>
+          <div class="feature-desc">Your staff sees everything. Borrowers only see their own loans and payment history. Separate views, one system, full control.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-lunas">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow">Simple by design</div>
+        <h2 class="section-title">Up and running in minutes</h2>
+        <p class="section-sub" style="margin:0 auto">No complicated setup. No training required. Just add your borrowers and start managing loans the right way.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-number">1</div>
+          <div class="how-title">Create your account</div>
+          <div class="how-desc">Sign up and set up your lending business profile. Takes less than a minute.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">2</div>
+          <div class="how-title">Add your borrowers</div>
+          <div class="how-desc">Enter borrower details — name, contact, address. All in one organized list.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">3</div>
+          <div class="how-title">Create loans &amp; set terms</div>
+          <div class="how-desc">Enter the amount, interest rate, and term. Lunas generates the full payment schedule instantly.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">4</div>
+          <div class="how-title">Track collections</div>
+          <div class="how-desc">Record payments as they come in. See what's paid, what's due, and what's overdue — at a glance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETA FEEDBACK -->
+  <section id="testimonials-lunas" style="background:#0d0d0d;">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <div class="section-eyebrow">Beta feedback</div>
+        <h2 class="section-title">What early testers are saying</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-quote">
+            "I used to track everything in a notebook. Lunas finally gives me <span class="highlight">one place for all my borrowers</span> — and I can check it right from my phone."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;">M</div>
+            <div>
+              <div class="testimonial-name">Maria T.</div>
+              <div class="testimonial-role">Small lender, Metro Manila</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-quote">
+            "The payment schedule feature saves me so much time. I used to calculate everything manually. Now <span class="highlight">Lunas does it automatically</span> the moment I create a loan."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;">J</div>
+            <div>
+              <div class="testimonial-name">Jun R.</div>
+              <div class="testimonial-role">Beta tester, Cavite</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-inner" style="position:relative">
+      <h2 class="section-title">Ready to leave the<br /><span style="color:#818cf8;">spreadsheets behind?</span></h2>
+      <p class="cta-sub">Join the early access list. We'll notify you the moment Lunas opens to more lenders.</p>
+      <div class="cta-actions">
+        <a href="mailto:support@bastech.app?subject=Lunas Early Access Request" class="btn-primary" style="font-size:17px;padding:16px 32px;">Request Early Access →</a>
+      </div>
+      <div class="cta-note">Private beta · No commitment · Free to try</div>
     </div>
   </section>
 
@@ -1938,6 +2796,22 @@
       tooltip.style.display = 'none';
     }
   });
+
+
+  // ── FAQ TOGGLE ──
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = answer.classList.contains('open');
+    // Close all open items first
+    document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-icon.open').forEach(i => i.classList.remove('open'));
+    // Open this one if it was closed
+    if (!isOpen) {
+      answer.classList.add('open');
+      icon.classList.add('open');
+    }
+  }
 
   // ====== INIT ======
   document.addEventListener('DOMContentLoaded', () => {

@@ -1209,6 +1209,446 @@
       }
       .faq-a.open { display: block; }
 
+
+    /* ══════════════════════════════════════════
+       LUNAS PRODUCT PAGE — scoped under #page-lunas
+       Brand color: Indigo #6366f1 / #818cf8
+    ══════════════════════════════════════════ */
+
+    #page-lunas .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 64px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #page-lunas .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #page-lunas .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #page-lunas .hero-inner {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    #page-lunas .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #818cf8;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+
+    #page-lunas .hero-badge::before {
+      content: '●';
+      font-size: 8px;
+      animation: lunas-pulse 2s infinite;
+    }
+
+    @keyframes lunas-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    #page-lunas h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    #page-lunas h1 .accent { color: #6366f1; }
+
+    #page-lunas .hero-sub {
+      font-size: 18px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 520px;
+      text-align: justify;
+    }
+
+    #page-lunas .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #page-lunas .btn-primary {
+      background: #6366f1;
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    #page-lunas .btn-primary:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(99,102,241,0.45);
+    }
+
+    #page-lunas .btn-ghost {
+      color: var(--slate-200);
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    #page-lunas .btn-ghost:hover { color: var(--white); }
+    #page-lunas .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+    #page-lunas .btn-ghost:hover::after { transform: translateX(4px); }
+
+    #page-lunas .hero-trust {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--slate-400);
+    }
+
+    #page-lunas .hero-trust-dots { display: flex; }
+
+    #page-lunas .dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--slate-700);
+      border: 2px solid var(--slate-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-left: -6px;
+    }
+
+    #page-lunas .dot:first-child { margin-left: 0; }
+
+    #page-lunas .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+
+    #page-lunas .phone-wrap { position: relative; }
+
+    #page-lunas .phone-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #page-lunas .phone {
+      width: 220px;
+      background: var(--slate-800);
+      border-radius: 36px;
+      border: 2px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    #page-lunas .phone-notch {
+      width: 80px; height: 24px;
+      background: var(--slate-900);
+      border-radius: 0 0 16px 16px;
+      margin: 0 auto 16px;
+    }
+
+    #page-lunas .phone-inner { padding: 0 16px 24px; }
+
+    #page-lunas .phone-header-card {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #page-lunas .phone-header-card::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    #page-lunas .phone-header-label { font-size: 9px; color: rgba(255,255,255,0.7); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+    #page-lunas .phone-header-amount { font-size: 20px; font-weight: 900; color: white; letter-spacing: -1px; margin: 3px 0; }
+    #page-lunas .phone-header-sub { font-size: 10px; color: rgba(255,255,255,0.65); }
+
+    #page-lunas .phone-section-title { font-size: 10px; font-weight: 700; color: var(--slate-400); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; }
+
+    #page-lunas .borrower-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+
+    #page-lunas .borrower-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    #page-lunas .borrower-info { flex: 1; }
+    #page-lunas .borrower-name { font-size: 11px; font-weight: 600; color: var(--white); }
+    #page-lunas .borrower-due { font-size: 9px; color: var(--slate-400); }
+
+    #page-lunas .status-badge {
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 100px;
+      letter-spacing: 0.3px;
+    }
+
+    #page-lunas .status-paid { background: rgba(34,197,94,0.15); color: #4ade80; }
+    #page-lunas .status-due { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    #page-lunas .status-overdue { background: rgba(239,68,68,0.15); color: #f87171; }
+
+    #page-lunas .stats-bar {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 48px;
+    }
+
+    #page-lunas .stats-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    #page-lunas .stat-item { text-align: center; }
+    #page-lunas .stat-value { font-size: 32px; font-weight: 900; color: #6366f1; letter-spacing: -1px; }
+    #page-lunas .stat-label { font-size: 13px; color: var(--slate-400); margin-top: 2px; font-weight: 500; }
+
+    #page-lunas section { padding: 100px 48px; }
+    #page-lunas .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    #page-lunas .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6366f1;
+      margin-bottom: 12px;
+    }
+
+    #page-lunas .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    #page-lunas .section-sub {
+      font-size: 17px;
+      color: var(--slate-400);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    #page-lunas #features-lunas { background: var(--slate-800); }
+    #page-lunas .features-header { margin-bottom: 60px; }
+
+    #page-lunas .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    #page-lunas .feature-card {
+      background: var(--slate-900);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    #page-lunas .feature-card:hover {
+      border-color: rgba(99,102,241,0.3);
+      transform: translateY(-4px);
+    }
+
+    #page-lunas .feature-icon {
+      width: 48px; height: 48px;
+      background: rgba(99,102,241,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    #page-lunas .feature-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    #page-lunas .feature-desc { font-size: 14px; color: var(--slate-400); line-height: 1.6; }
+
+    #page-lunas .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    #page-lunas .how-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 1px;
+      background: linear-gradient(to right, #6366f1, transparent);
+    }
+
+    #page-lunas .how-step { text-align: center; }
+
+    #page-lunas .how-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #6366f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: white;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #page-lunas .how-step:not(:first-child) .how-number {
+      background: var(--slate-700);
+      color: var(--slate-200);
+    }
+
+    #page-lunas .how-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    #page-lunas .how-desc { font-size: 13px; color: var(--slate-400); line-height: 1.6; }
+
+    #page-lunas .cta-section {
+      text-align: center;
+      padding: 100px 48px;
+      background: var(--slate-800);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #page-lunas .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #page-lunas .cta-section .section-title { font-size: clamp(36px, 5vw, 56px); }
+    #page-lunas .cta-sub { font-size: 18px; color: var(--slate-400); margin: 16px auto 40px; max-width: 480px; line-height: 1.6; }
+    #page-lunas .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    #page-lunas .cta-note { margin-top: 20px; font-size: 13px; color: var(--slate-400); }
+
+    #page-lunas .testimonial-card {
+      background: var(--slate-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    #page-lunas .testimonial-quote { font-size: 16px; font-weight: 500; line-height: 1.7; color: var(--slate-200); margin-bottom: 20px; }
+    #page-lunas .testimonial-quote .highlight { color: #818cf8; font-weight: 700; }
+    #page-lunas .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    #page-lunas .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    #page-lunas .testimonial-name { font-weight: 700; font-size: 15px; }
+    #page-lunas .testimonial-role { font-size: 12px; color: var(--slate-400); }
+
+    /* Lunas page responsive */
+    @media (max-width: 768px) {
+      #page-lunas .hero { padding: 40px 24px 48px; min-height: unset; }
+      #page-lunas .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      #page-lunas .hero-visual { display: none; }
+      #page-lunas h1 { font-size: 36px; }
+      #page-lunas .hero-sub { font-size: 16px; }
+      #page-lunas section { padding: 64px 24px; }
+      #page-lunas .features-grid { grid-template-columns: 1fr; }
+      #page-lunas .how-grid { grid-template-columns: repeat(2, 1fr); }
+      #page-lunas .how-grid::before { display: none; }
+      #page-lunas .stats-bar { padding: 28px 20px; }
+      #page-lunas .stats-bar-inner { gap: 32px; }
+      #page-lunas .stat-value { font-size: 26px; }
+      #page-lunas .cta-section { padding: 56px 20px; }
+      #page-lunas .cta-section .section-title { font-size: 28px; }
+      #page-lunas > div:first-child { padding: 12px 20px 0; }
+    }
+
+    @media (max-width: 480px) {
+      #page-lunas h1 { font-size: 32px; }
+      #page-lunas .how-grid { grid-template-columns: 1fr; }
+      #page-lunas .stats-bar-inner { gap: 16px; }
+      #page-lunas .stat-value { font-size: 22px; }
+    }
+
 </style>
 </head>
 <body>
@@ -1364,7 +1804,10 @@
         <li>Interest waiver support</li>
         <li>Separate portals for staff and borrowers</li>
       </ul>
-      <div style="font-size:0.8rem;color:var(--text-dim);margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">Currently in private beta. Public launch coming soon.</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
+        <span style="font-size:0.8rem;color:var(--text-dim);">Currently in private beta. Public launch coming soon.</span>
+        <button onclick="navigate('lunas')" style="background:#6366f1;color:white;border:none;padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background 0.2s;white-space:nowrap;margin-left:12px;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Learn More →</button>
+      </div>
     </div>
 
     <div class="product-card coming-soon-card fade-in">
@@ -1876,6 +2319,239 @@
         <a href="https://grip.bastech.app" class="btn-primary" style="font-size:17px; padding:16px 32px;">Start for free →</a>
       </div>
       <div class="cta-note">No credit card · No setup · Works on any device</div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ========================================
+     LUNAS PRODUCT PAGE
+======================================== -->
+<div id="page-lunas" class="page">
+
+  <!-- Back button -->
+  <div style="padding:16px 48px 0;">
+    <button onclick="navigate('products')" style="background:none;border:none;color:#8892A4;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8892A4'">
+      ← Back to Products
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Now in Private Beta</div>
+        <h1>Lending made<br /><span class="accent">simple.</span></h1>
+        <p class="hero-sub">Stop managing loans in spreadsheets and notebooks. Lunas gives small lenders one organized system to track borrowers, loans, and collections — all from your phone.</p>
+        <div class="hero-actions">
+          <a href="mailto:support@bastech.app?subject=Lunas Early Access Request" class="btn-primary">Request Early Access</a>
+          <a href="#features-lunas" class="btn-ghost">See features</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-dots">
+            <div class="dot" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">M</div>
+            <div class="dot" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">J</div>
+          </div>
+          <span>Early lenders already testing. Be next.</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-wrap">
+          <div class="phone-glow"></div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-inner">
+              <!-- Summary card -->
+              <div class="phone-header-card">
+                <div class="phone-header-label">Total Outstanding</div>
+                <div class="phone-header-amount">₱84,500</div>
+                <div class="phone-header-sub">6 active loans · 2 due this week</div>
+              </div>
+              <!-- Borrower list -->
+              <div class="phone-section-title">Borrowers</div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(99,102,241,0.2);color:#818cf8;">R</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Rosa Mendoza</div>
+                  <div class="borrower-due">Due Jun 5 · ₱4,500</div>
+                </div>
+                <span class="status-badge status-due">DUE</span>
+              </div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(34,197,94,0.15);color:#4ade80;">A</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Allan Santos</div>
+                  <div class="borrower-due">Paid May 30 · ₱3,200</div>
+                </div>
+                <span class="status-badge status-paid">PAID</span>
+              </div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(239,68,68,0.15);color:#f87171;">B</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Beth Reyes</div>
+                  <div class="borrower-due">Overdue 3 days · ₱5,000</div>
+                </div>
+                <span class="status-badge status-overdue">LATE</span>
+              </div>
+              <!-- Collection bar -->
+              <div class="phone-section-title" style="margin-top:12px">May Collections</div>
+              <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:4px;">
+                <div style="width:72%;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:3px;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--slate-400);">
+                <span>₱30,600 collected</span><span>72% of target</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Mobile-first</div></div>
+      <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Spreadsheets needed</div></div>
+      <div class="stat-item"><div class="stat-value">∞</div><div class="stat-label">Borrowers &amp; loans</div></div>
+      <div class="stat-item"><div class="stat-value">PH</div><div class="stat-label">Built for Filipino lenders</div></div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features-lunas">
+    <div class="section-inner">
+      <div class="features-header">
+        <div class="section-eyebrow">Everything you need</div>
+        <h2 class="section-title">Built for how small lenders<br />actually work</h2>
+        <p class="section-sub">Not a bank. Not a spreadsheet. Lunas is the middle ground — simple enough to use daily, powerful enough to run your whole lending operation.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="feature-title">Borrower Management</div>
+          <div class="feature-desc">Add and manage all your borrowers in one place. Name, contact, address, and full loan history — always within reach.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="feature-title">Loan Tracking</div>
+          <div class="feature-desc">Create loans with custom principal, interest rate, and terms. Each loan is tracked separately with its own complete history.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="feature-title">Auto-Generated Schedules</div>
+          <div class="feature-desc">Payment schedules are created automatically when a loan is set up. Principal and interest calculated per period — no manual math needed.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </div>
+          <div class="feature-title">Partial Payments</div>
+          <div class="feature-desc">Record payments of any amount. Lunas tracks what was paid, what's still owed, and marks each period accordingly — no double-counting.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="feature-title">Late Fees &amp; Waivers</div>
+          <div class="feature-desc">Charge late fees when you choose. Waive them when circumstances call for it. Every decision is logged — who did it, when, and why.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="feature-title">Staff &amp; Borrower Portals</div>
+          <div class="feature-desc">Your staff sees everything. Borrowers only see their own loans and payment history. Separate views, one system, full control.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-lunas">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <div class="section-eyebrow">Simple by design</div>
+        <h2 class="section-title">Up and running in minutes</h2>
+        <p class="section-sub" style="margin:0 auto">No complicated setup. No training required. Just add your borrowers and start managing loans the right way.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-number">1</div>
+          <div class="how-title">Create your account</div>
+          <div class="how-desc">Sign up and set up your lending business profile. Takes less than a minute.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">2</div>
+          <div class="how-title">Add your borrowers</div>
+          <div class="how-desc">Enter borrower details — name, contact, address. All in one organized list.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">3</div>
+          <div class="how-title">Create loans &amp; set terms</div>
+          <div class="how-desc">Enter the amount, interest rate, and term. Lunas generates the full payment schedule instantly.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-number">4</div>
+          <div class="how-title">Track collections</div>
+          <div class="how-desc">Record payments as they come in. See what's paid, what's due, and what's overdue — at a glance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETA FEEDBACK -->
+  <section id="testimonials-lunas" style="background:#0d0d0d;">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:56px;">
+        <div class="section-eyebrow">Beta feedback</div>
+        <h2 class="section-title">What early testers are saying</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-quote">
+            "I used to track everything in a notebook. Lunas finally gives me <span class="highlight">one place for all my borrowers</span> — and I can check it right from my phone."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;">M</div>
+            <div>
+              <div class="testimonial-name">Maria T.</div>
+              <div class="testimonial-role">Small lender, Metro Manila</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-quote">
+            "The payment schedule feature saves me so much time. I used to calculate everything manually. Now <span class="highlight">Lunas does it automatically</span> the moment I create a loan."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;">J</div>
+            <div>
+              <div class="testimonial-name">Jun R.</div>
+              <div class="testimonial-role">Beta tester, Cavite</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-inner" style="position:relative">
+      <h2 class="section-title">Ready to leave the<br /><span style="color:#818cf8;">spreadsheets behind?</span></h2>
+      <p class="cta-sub">Join the early access list. We'll notify you the moment Lunas opens to more lenders.</p>
+      <div class="cta-actions">
+        <a href="mailto:support@bastech.app?subject=Lunas Early Access Request" class="btn-primary" style="font-size:17px;padding:16px 32px;">Request Early Access →</a>
+      </div>
+      <div class="cta-note">Private beta · No commitment · Free to try</div>
     </div>
   </section>
 
