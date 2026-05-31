@@ -1375,7 +1375,7 @@
 
     #page-lunas .phone {
       width: 220px;
-      background: var(--slate-800);
+      background: #0d1117;
       border-radius: 36px;
       border: 2px solid rgba(255,255,255,0.08);
       overflow: hidden;
@@ -2361,46 +2361,86 @@
           <div class="phone-glow"></div>
           <div class="phone">
             <div class="phone-notch"></div>
-            <div class="phone-inner">
-              <!-- Summary card -->
-              <div class="phone-header-card">
-                <div class="phone-header-label">Total Outstanding</div>
-                <div class="phone-header-amount">₱84,500</div>
-                <div class="phone-header-sub">6 active loans · 2 due this week</div>
-              </div>
-              <!-- Borrower list -->
-              <div class="phone-section-title">Borrowers</div>
-              <div class="borrower-row">
-                <div class="borrower-avatar" style="background:rgba(99,102,241,0.2);color:#818cf8;">R</div>
-                <div class="borrower-info">
-                  <div class="borrower-name">Rosa Mendoza</div>
-                  <div class="borrower-due">Due Jun 5 · ₱4,500</div>
+            <div class="phone-inner" style="padding:0 10px 0;background:#0d1117;">
+              <!-- App header -->
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0 10px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:8px;">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white;flex-shrink:0;">MJ</div>
+                  <span style="font-size:11px;font-weight:700;color:white;">MJ Lending</span>
                 </div>
-                <span class="status-badge status-due">DUE</span>
-              </div>
-              <div class="borrower-row">
-                <div class="borrower-avatar" style="background:rgba(34,197,94,0.15);color:#4ade80;">A</div>
-                <div class="borrower-info">
-                  <div class="borrower-name">Allan Santos</div>
-                  <div class="borrower-due">Paid May 30 · ₱3,200</div>
+                <div style="display:flex;gap:8px;color:rgba(255,255,255,0.4);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                 </div>
-                <span class="status-badge status-paid">PAID</span>
               </div>
-              <div class="borrower-row">
-                <div class="borrower-avatar" style="background:rgba(239,68,68,0.15);color:#f87171;">B</div>
-                <div class="borrower-info">
-                  <div class="borrower-name">Beth Reyes</div>
-                  <div class="borrower-due">Overdue 3 days · ₱5,000</div>
+              <!-- Greeting -->
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:8px;">Good evening, Admin 👋</div>
+              <!-- Stats grid -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px;">
+                <div style="background:#0d7a57;border-radius:8px;padding:8px;">
+                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:3px;">ACTIVE LOANS</div>
+                  <div style="font-size:20px;font-weight:900;color:white;line-height:1;">2</div>
                 </div>
-                <span class="status-badge status-overdue">LATE</span>
+                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
+                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">OUTSTANDING</div>
+                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">33,433</div>
+                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">Total balance</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
+                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">THIS MONTH</div>
+                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">1,000</div>
+                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">Collections</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
+                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">OVERDUE</div>
+                  <div style="font-size:13px;font-weight:900;color:#ef4444;line-height:1.2;">0</div>
+                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">Schedules</div>
+                </div>
               </div>
-              <!-- Collection bar -->
-              <div class="phone-section-title" style="margin-top:12px">May Collections</div>
-              <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:4px;">
-                <div style="width:72%;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:3px;"></div>
+              <!-- Second row stats -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;">
+                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
+                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">TOTAL LENT</div>
+                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">30,000</div>
+                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">All principals</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
+                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">INTEREST EXP.</div>
+                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">5,400</div>
+                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">All loans</div>
+                </div>
               </div>
-              <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--slate-400);">
-                <span>₱30,600 collected</span><span>72% of target</span>
+              <!-- Recent Loans -->
+              <div style="font-size:7px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;">RECENT LOANS</div>
+              <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;display:flex;align-items:center;gap:7px;">
+                <div style="width:26px;height:26px;border-radius:50%;background:rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#10b981;flex-shrink:0;">M</div>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-size:10px;font-weight:700;color:white;">Maria Santos</div>
+                  <div style="font-size:8px;color:rgba(255,255,255,0.35);">₱20,000 · 6mo · 3.0%/mo</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0;">
+                  <div style="font-size:8px;font-weight:700;color:white;">active</div>
+                  <div style="font-size:7px;background:rgba(16,185,129,0.15);color:#10b981;padding:1px 5px;border-radius:4px;font-weight:700;">Active</div>
+                </div>
+              </div>
+              <!-- Bottom nav -->
+              <div style="display:flex;justify-content:space-around;padding:8px 0 6px;margin-top:8px;border-top:1px solid rgba(255,255,255,0.06);">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#10b981" stroke="none"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  <span style="font-size:7px;color:#10b981;font-weight:700;">Dashboard</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span style="font-size:7px;color:rgba(255,255,255,0.3);font-weight:600;">Borrowers</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span style="font-size:7px;color:rgba(255,255,255,0.3);font-weight:600;">Loans</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  <span style="font-size:7px;color:rgba(255,255,255,0.3);font-weight:600;">Reports</span>
+                </div>
               </div>
             </div>
           </div>
