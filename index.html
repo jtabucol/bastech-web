@@ -1650,6 +1650,63 @@
     }
 
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bastech.app/#organization",
+      "name": "Bastech",
+      "url": "https://bastech.app",
+      "description": "Bastech is a digital product company based in Manila, Philippines, building web applications for Filipino consumers and small businesses.",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Manila, Philippines"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "July Tabucol"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@bastech.app",
+        "contactType": "customer support"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://grip.bastech.app/#application",
+      "name": "Grip",
+      "url": "https://grip.bastech.app",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "description": "Grip is a personal finance web app for Filipinos. Track multiple accounts, manage income and expenses, set budget goals, and monitor payables across 15 supported currencies.",
+      "author": {
+        "@type": "Organization",
+        "@id": "https://bastech.app/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "seller": {
+          "@type": "Organization",
+          "name": "Bastech"
+        }
+      },
+      "featureList": [
+        "Multi-account tracking",
+        "Income and expense management",
+        "Budget goals",
+        "Payables tracking",
+        "15-currency support",
+        "Dark and light mode"
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

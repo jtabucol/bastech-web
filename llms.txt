@@ -1,0 +1,69 @@
+# Bastech
+
+Bastech is a digital product company based in Manila, Philippines. It builds web applications for Filipino consumers and small businesses, focused on personal finance and lending management.
+
+## Company
+
+- **Name:** Bastech
+- **Location:** Manila, Philippines
+- **Founder:** July Tabucol
+- **Mission:** Help people find clarity and direction through purposeful digital products
+- **Website:** https://bastech.app
+- **Support email:** support@bastech.app
+
+## Products
+
+### Grip — Personal Finance Web App
+
+- **URL:** https://grip.bastech.app
+- **Category:** Personal finance / budgeting
+- **Platform:** Web (mobile-responsive), any modern browser
+- **Status:** Live and available
+- **Description:** Grip is a multi-account personal finance tracker built for Filipinos. Users can track income and expenses across multiple accounts, manage payables, set budget goals, and view their finances in 15 supported currencies.
+- **Key features:**
+  - Multi-account tracking (checking, savings, credit cards, cash wallets)
+  - Income and expense logging with categories
+  - Payables and bills tracker (with skip-month and active-months logic)
+  - Budget goals per category
+  - 15-currency support
+  - Dark mode and light mode
+- **Pricing:** Subscription-based via Lemon Squeezy
+- **Refund policy:** 7-day money-back guarantee
+
+### Lunas — Lending Management Web App
+
+- **URL:** https://lunas.bastech.app
+- **Category:** Financial services / lending management
+- **Platform:** Web (mobile-first), any modern browser
+- **Status:** In beta development
+- **Description:** Lunas is a lending management system designed for small informal lenders in the Philippines. It allows lenders to manage borrowers, create loans, record payments, and track outstanding balances. Borrowers can log in to view their own loan status and payment history.
+- **Key features:**
+  - Borrower registration and login portal
+  - Loan creation with configurable flat interest rate (default 3% per month)
+  - Payment recording with partial payment support
+  - Late fee tracking (optional, waivable per loan)
+  - Interest waivers
+  - Admin and staff role management
+- **Target users:** Small individual lenders and informal lending businesses in the Philippines
+
+## Site Pages
+
+- **Home** — https://bastech.app — Overview of Bastech and its products
+- **Products** — https://bastech.app/products — Full product listing
+- **Grip product page** — https://bastech.app/grip — Features, pricing, and link to the Grip app
+- **About** — https://bastech.app/about — Company story and founder background
+- **Contact** — https://bastech.app/contact — Contact form; also reachable at support@bastech.app
+- **Terms & Conditions** — https://bastech.app/terms — Legal terms including refund policy
+
+## Founder
+
+- **Name:** July Tabucol
+- **Role:** Founder, Bastech
+- **Location:** Manila, Philippines
+
+## Technical Notes
+
+- bastech.app is a single-page application (SPA) served by Vercel
+- Grip and Lunas are hosted as subdomains (grip.bastech.app, lunas.bastech.app)
+- Authentication and database for both products are powered by Supabase
+- Domain registrar: Namecheap
