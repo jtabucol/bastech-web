@@ -1375,7 +1375,7 @@
 
     #page-lunas .phone {
       width: 220px;
-      background: #0d1117;
+      background: var(--slate-800);
       border-radius: 36px;
       border: 2px solid rgba(255,255,255,0.08);
       overflow: hidden;
@@ -1623,6 +1623,85 @@
     #page-lunas .testimonial-name { font-weight: 700; font-size: 15px; }
     #page-lunas .testimonial-role { font-size: 12px; color: var(--slate-400); }
 
+    /* Lunas pricing */
+    #page-lunas .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    #page-lunas .pricing-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px 28px 32px;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    #page-lunas .pricing-card:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-3px); }
+    #page-lunas .pricing-card.featured {
+      border-color: #6366f1;
+      background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(255,255,255,0.03) 100%);
+    }
+    #page-lunas .pricing-badge {
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%);
+      background: #6366f1;
+      color: white;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 99px;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    #page-lunas .pricing-name { font-size: 19px; font-weight: 800; color: white; margin-bottom: 16px; }
+    #page-lunas .pricing-amount {
+      font-size: 46px; font-weight: 900;
+      color: #818cf8;
+      letter-spacing: -2px; line-height: 1;
+      margin-bottom: 4px;
+    }
+    #page-lunas .pricing-amount span { font-size: 16px; font-weight: 500; color: #64748b; letter-spacing: 0; }
+    #page-lunas .pricing-period { font-size: 13px; color: #64748b; margin-bottom: 28px; }
+    #page-lunas .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+      display: flex; flex-direction: column; gap: 11px;
+      flex: 1;
+    }
+    #page-lunas .pricing-features li {
+      font-size: 14px; color: #cbd5e1;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    #page-lunas .pricing-features li::before {
+      content: '';
+      width: 18px; height: 18px; min-width: 18px;
+      border-radius: 50%;
+      background: rgba(99,102,241,0.18) url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%23818cf8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+      margin-top: 1px;
+    }
+    #page-lunas .pricing-cta {
+      display: block; text-align: center;
+      padding: 13px 20px; border-radius: 10px;
+      font-weight: 700; font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none; cursor: pointer; font-family: inherit;
+    }
+    #page-lunas .pricing-cta-primary { background: #6366f1; color: white; }
+    #page-lunas .pricing-cta-primary:hover { background: #4f46e5; }
+    #page-lunas .pricing-cta-ghost {
+      background: rgba(255,255,255,0.05);
+      color: #94a3b8;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    #page-lunas .pricing-cta-ghost:hover { background: rgba(255,255,255,0.1); color: white; }
+    #page-lunas .pricing-note { text-align: center; margin-top: 32px; font-size: 13px; color: #475569; }
+
     /* Lunas page responsive */
     @media (max-width: 768px) {
       #page-lunas .hero { padding: 40px 24px 48px; min-height: unset; }
@@ -1632,6 +1711,7 @@
       #page-lunas .hero-sub { font-size: 16px; }
       #page-lunas section { padding: 64px 24px; }
       #page-lunas .features-grid { grid-template-columns: 1fr; }
+      #page-lunas .pricing-grid { grid-template-columns: 1fr; }
       #page-lunas .how-grid { grid-template-columns: repeat(2, 1fr); }
       #page-lunas .how-grid::before { display: none; }
       #page-lunas .stats-bar { padding: 28px 20px; }
@@ -1650,63 +1730,6 @@
     }
 
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://bastech.app/#organization",
-      "name": "Bastech",
-      "url": "https://bastech.app",
-      "description": "Bastech is a digital product company based in Manila, Philippines, building web applications for Filipino consumers and small businesses.",
-      "foundingLocation": {
-        "@type": "Place",
-        "name": "Manila, Philippines"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "July Tabucol"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "support@bastech.app",
-        "contactType": "customer support"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://grip.bastech.app/#application",
-      "name": "Grip",
-      "url": "https://grip.bastech.app",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "description": "Grip is a personal finance web app for Filipinos. Track multiple accounts, manage income and expenses, set budget goals, and monitor payables across 15 supported currencies.",
-      "author": {
-        "@type": "Organization",
-        "@id": "https://bastech.app/#organization"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "seller": {
-          "@type": "Organization",
-          "name": "Bastech"
-        }
-      },
-      "featureList": [
-        "Multi-account tracking",
-        "Income and expense management",
-        "Budget goals",
-        "Payables tracking",
-        "15-currency support",
-        "Dark and light mode"
-      ]
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -1736,7 +1759,7 @@
     <li><a onclick="navigate('contact')"  id="nav-contact">Contact</a></li>
   </ul>
 
-  <a href="https://lunas.bastech.app" target="_blank" class="nav-cta">Request Early Access →</a>
+  <a href="https://grip.bastech.app" target="_blank" class="nav-cta">Try Grip →</a>
 </nav>
 
 <!-- ========================================
@@ -1809,7 +1832,7 @@
         <p>A tool for small lenders in the Philippines. Manage borrowers, loans, and payment schedules in one place. Currently in private beta.</p>
       </div>
       <div class="strip-actions">
-        <button onclick="navigate('lunas')" style="text-align:center;background:#6366f1;color:white;border:none;padding:14px 28px;border-radius:10px;font-weight:700;font-size:16px;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(99,102,241,0.35);transition:background 0.2s,transform 0.15s,box-shadow 0.2s;" onmouseover="this.style.background='#4f46e5';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(99,102,241,0.45)'" onmouseout="this.style.background='#6366f1';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(99,102,241,0.35)'">Learn More →</button>
+        <button onclick="navigate('products')" class="btn-secondary" style="text-align:center;">Learn More →</button>
       </div>
     </div>
   </section>
@@ -1849,21 +1872,24 @@
       </div>
     </div>
 
-    <!-- Lunas — In Development -->
+    <!-- Lunas — Live -->
     <div class="product-card lunas-card fade-in">
-      <div class="product-tag tag-dev">● In Development</div>
+      <div class="product-tag tag-live">● Live Now</div>
       <div class="product-name">Lunas <span>App</span></div>
-      <p class="product-tagline">A lending management tool for small lenders in the Philippines. Track borrowers, loans, payment schedules, and collections. No more spreadsheet chaos.</p>
+      <p class="product-tagline">A lending management tool for small lenders in the Philippines. Track borrowers, loans, payment schedules, and collections — free to start.</p>
       <ul class="feature-list">
         <li>Borrower and loan management</li>
         <li>Auto-generated payment schedules</li>
         <li>Partial payments and late fee tracking</li>
-        <li>Interest waiver support</li>
-        <li>Separate portals for staff and borrowers</li>
+        <li>Borrower portal — borrowers view their own loans</li>
+        <li>Free plan available · Starter ₱299/mo · Pro ₱699/mo</li>
       </ul>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
-        <span style="font-size:0.8rem;color:var(--text-dim);">Currently in private beta. Public launch coming soon.</span>
-        <button onclick="navigate('lunas')" style="background:#6366f1;color:white;border:none;padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background 0.2s;white-space:nowrap;margin-left:12px;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Learn More →</button>
+        <span style="font-size:0.8rem;color:var(--text-dim);">Free plan forever. No credit card needed.</span>
+        <div style="display:flex;gap:8px;margin-left:12px;">
+          <a href="https://lunas.bastech.app" target="_blank" style="background:#6366f1;color:white;border:none;padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background 0.2s;white-space:nowrap;text-decoration:none;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Try Free →</a>
+          <button onclick="navigate('lunas')" style="background:rgba(99,102,241,0.12);color:#818cf8;border:1px solid rgba(99,102,241,0.25);padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap;">Learn More</button>
+        </div>
       </div>
     </div>
 
@@ -2398,19 +2424,20 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">Now in Private Beta</div>
+        <div class="hero-badge">Now Live — Free to Start</div>
+        <img src="https://plhhnoumtwmnyraypybr.supabase.co/storage/v1/object/public/logos/lunas-logo.png" alt="Lunas" height="40" style="display:block;margin-bottom:20px;">
         <h1>Lending made<br /><span class="accent">simple.</span></h1>
         <p class="hero-sub">Stop managing loans in spreadsheets and notebooks. Lunas gives small lenders one organized system to track borrowers, loans, and collections — all from your phone.</p>
         <div class="hero-actions">
-          <a href="mailto:support@bastech.app?subject=Lunas Early Access Request" class="btn-primary">Request Early Access</a>
-          <a href="#features-lunas" class="btn-ghost">See features</a>
+          <a href="https://lunas.bastech.app" target="_blank" class="btn-primary">Start for Free →</a>
+          <a href="#pricing-lunas" class="btn-ghost">See pricing</a>
         </div>
         <div class="hero-trust">
           <div class="hero-trust-dots">
             <div class="dot" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">M</div>
             <div class="dot" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">J</div>
           </div>
-          <span>Early lenders already testing. Be next.</span>
+          <span>Live and free. Start managing your loans today.</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -2418,86 +2445,46 @@
           <div class="phone-glow"></div>
           <div class="phone">
             <div class="phone-notch"></div>
-            <div class="phone-inner" style="padding:0 10px 0;background:#0d1117;">
-              <!-- App header -->
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0 10px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:8px;">
-                <div style="display:flex;align-items:center;gap:6px;">
-                  <div style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white;flex-shrink:0;">MJ</div>
-                  <span style="font-size:11px;font-weight:700;color:white;">MJ Lending</span>
-                </div>
-                <div style="display:flex;gap:8px;color:rgba(255,255,255,0.4);">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                </div>
+            <div class="phone-inner">
+              <!-- Summary card -->
+              <div class="phone-header-card">
+                <div class="phone-header-label">Total Outstanding</div>
+                <div class="phone-header-amount">₱84,500</div>
+                <div class="phone-header-sub">6 active loans · 2 due this week</div>
               </div>
-              <!-- Greeting -->
-              <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:8px;">Good evening, Admin 👋</div>
-              <!-- Stats grid -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px;">
-                <div style="background:#0d7a57;border-radius:8px;padding:8px;">
-                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:3px;">ACTIVE LOANS</div>
-                  <div style="font-size:20px;font-weight:900;color:white;line-height:1;">2</div>
+              <!-- Borrower list -->
+              <div class="phone-section-title">Borrowers</div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(99,102,241,0.2);color:#818cf8;">R</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Rosa Mendoza</div>
+                  <div class="borrower-due">Due Jun 5 · ₱4,500</div>
                 </div>
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
-                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">OUTSTANDING</div>
-                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">33,433</div>
-                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">Total balance</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
-                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">THIS MONTH</div>
-                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">1,000</div>
-                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">Collections</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
-                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">OVERDUE</div>
-                  <div style="font-size:13px;font-weight:900;color:#ef4444;line-height:1.2;">0</div>
-                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">Schedules</div>
-                </div>
+                <span class="status-badge status-due">DUE</span>
               </div>
-              <!-- Second row stats -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;">
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
-                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">TOTAL LENT</div>
-                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">30,000</div>
-                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">All principals</div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(34,197,94,0.15);color:#4ade80;">A</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Allan Santos</div>
+                  <div class="borrower-due">Paid May 30 · ₱3,200</div>
                 </div>
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;">
-                  <div style="font-size:6px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;">INTEREST EXP.</div>
-                  <div style="font-size:13px;font-weight:900;color:white;line-height:1.2;">5,400</div>
-                  <div style="font-size:7px;color:rgba(255,255,255,0.35);margin-top:1px;">All loans</div>
-                </div>
+                <span class="status-badge status-paid">PAID</span>
               </div>
-              <!-- Recent Loans -->
-              <div style="font-size:7px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;">RECENT LOANS</div>
-              <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;display:flex;align-items:center;gap:7px;">
-                <div style="width:26px;height:26px;border-radius:50%;background:rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#10b981;flex-shrink:0;">M</div>
-                <div style="flex:1;min-width:0;">
-                  <div style="font-size:10px;font-weight:700;color:white;">Maria Santos</div>
-                  <div style="font-size:8px;color:rgba(255,255,255,0.35);">₱20,000 · 6mo · 3.0%/mo</div>
+              <div class="borrower-row">
+                <div class="borrower-avatar" style="background:rgba(239,68,68,0.15);color:#f87171;">B</div>
+                <div class="borrower-info">
+                  <div class="borrower-name">Beth Reyes</div>
+                  <div class="borrower-due">Overdue 3 days · ₱5,000</div>
                 </div>
-                <div style="text-align:right;flex-shrink:0;">
-                  <div style="font-size:8px;font-weight:700;color:white;">active</div>
-                  <div style="font-size:7px;background:rgba(16,185,129,0.15);color:#10b981;padding:1px 5px;border-radius:4px;font-weight:700;">Active</div>
-                </div>
+                <span class="status-badge status-overdue">LATE</span>
               </div>
-              <!-- Bottom nav -->
-              <div style="display:flex;justify-content:space-around;padding:8px 0 6px;margin-top:8px;border-top:1px solid rgba(255,255,255,0.06);">
-                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#10b981" stroke="none"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                  <span style="font-size:7px;color:#10b981;font-weight:700;">Dashboard</span>
-                </div>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  <span style="font-size:7px;color:rgba(255,255,255,0.3);font-weight:600;">Borrowers</span>
-                </div>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                  <span style="font-size:7px;color:rgba(255,255,255,0.3);font-weight:600;">Loans</span>
-                </div>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                  <span style="font-size:7px;color:rgba(255,255,255,0.3);font-weight:600;">Reports</span>
-                </div>
+              <!-- Collection bar -->
+              <div class="phone-section-title" style="margin-top:12px">May Collections</div>
+              <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:4px;">
+                <div style="width:72%;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:3px;"></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--slate-400);">
+                <span>₱30,600 collected</span><span>72% of target</span>
               </div>
             </div>
           </div>
@@ -2509,9 +2496,9 @@
   <!-- STATS -->
   <div class="stats-bar">
     <div class="stats-bar-inner">
-      <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Mobile-first</div></div>
+      <div class="stat-item"><div class="stat-value">₱0</div><div class="stat-label">To get started</div></div>
       <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Spreadsheets needed</div></div>
-      <div class="stat-item"><div class="stat-value">∞</div><div class="stat-label">Borrowers &amp; loans</div></div>
+      <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Mobile-first</div></div>
       <div class="stat-item"><div class="stat-value">PH</div><div class="stat-label">Built for Filipino lenders</div></div>
     </div>
   </div>
@@ -2604,8 +2591,64 @@
     </div>
   </section>
 
+  <!-- PRICING -->
+  <section id="pricing-lunas" style="background:#0d0d0d;">
+    <div class="section-inner">
+      <div style="text-align:center;">
+        <div class="section-eyebrow">Simple pricing</div>
+        <h2 class="section-title">Start free.<br />Grow as you go.</h2>
+        <p class="section-sub" style="margin:0 auto;">Every plan includes the core tools. Upgrade only when your portfolio grows.</p>
+      </div>
+      <div class="pricing-grid">
+        <!-- Free -->
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">Free</div>
+          <div class="pricing-amount">₱0</div>
+          <div class="pricing-period">Forever free</div>
+          <ul class="pricing-features">
+            <li>Up to 10 borrowers</li>
+            <li>Loans &amp; payment tracking</li>
+            <li>Auto-generated schedules</li>
+            <li>Reports &amp; dashboard</li>
+            <li>Borrower portal</li>
+            <li>Receipt uploads</li>
+          </ul>
+          <a href="https://lunas.bastech.app" target="_blank" class="pricing-cta pricing-cta-ghost">Get Started Free</a>
+        </div>
+        <!-- Starter -->
+        <div class="pricing-card featured fade-in">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-amount">₱299<span>/mo</span></div>
+          <div class="pricing-period">For growing lenders</div>
+          <ul class="pricing-features">
+            <li>Up to 50 borrowers</li>
+            <li>Everything in Free</li>
+            <li>CSV bulk import</li>
+            <li>Full reports</li>
+          </ul>
+          <a href="https://lunas.bastech.app" target="_blank" class="pricing-cta pricing-cta-primary">Start Starter Plan</a>
+        </div>
+        <!-- Pro -->
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-amount">₱699<span>/mo</span></div>
+          <div class="pricing-period">For established lenders</div>
+          <ul class="pricing-features">
+            <li>Unlimited borrowers</li>
+            <li>Everything in Starter</li>
+            <li>Multiple staff accounts</li>
+            <li>All future features</li>
+          </ul>
+          <a href="https://lunas.bastech.app" target="_blank" class="pricing-cta pricing-cta-ghost">Start Pro Plan</a>
+        </div>
+      </div>
+      <p class="pricing-note">Starter &amp; Pro plans: billing set up after registration · Cancel anytime</p>
+    </div>
+  </section>
+
   <!-- BETA FEEDBACK -->
-  <section id="testimonials-lunas" style="background:#0d0d0d;">
+  <section id="testimonials-lunas" style="background:#0b0b12;">
     <div class="section-inner">
       <div style="text-align:center;margin-bottom:56px;">
         <div class="section-eyebrow">Beta feedback</div>
@@ -2644,11 +2687,12 @@
   <section class="cta-section">
     <div class="section-inner" style="position:relative">
       <h2 class="section-title">Ready to leave the<br /><span style="color:#818cf8;">spreadsheets behind?</span></h2>
-      <p class="cta-sub">Join the early access list. We'll notify you the moment Lunas opens to more lenders.</p>
+      <p class="cta-sub">Create your account, add your borrowers, and start tracking loans today. Free — no credit card needed.</p>
       <div class="cta-actions">
-        <a href="mailto:support@bastech.app?subject=Lunas Early Access Request" class="btn-primary" style="font-size:17px;padding:16px 32px;">Request Early Access →</a>
+        <a href="https://lunas.bastech.app" target="_blank" class="btn-primary" style="font-size:17px;padding:16px 32px;">Start for Free →</a>
+        <a href="#pricing-lunas" class="btn-ghost" style="font-size:16px;padding:16px 24px;">See pricing</a>
       </div>
-      <div class="cta-note">Private beta · No commitment · Free to try</div>
+      <div class="cta-note">Free plan forever · Starter ₱299/mo · Pro ₱699/mo</div>
     </div>
   </section>
 
