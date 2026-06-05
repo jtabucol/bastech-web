@@ -1812,7 +1812,7 @@
   <section>
     <p class="section-label">Our Products</p>
     <h2 class="section-title">What we've built</h2>
-    <p class="section-subtitle" style="margin-bottom:2.5rem;">Grip is live and free to use. Lunas is in development. More on the way.</p>
+    <p class="section-subtitle" style="margin-bottom:2.5rem;">Grip and Lunas are both live and free to start. More on the way.</p>
 
     <div class="product-strip fade-in">
       <div class="product-strip-content">
@@ -1827,12 +1827,13 @@
     </div>
     <div class="product-strip fade-in" style="margin-top:1rem;background:linear-gradient(135deg,#0f1020,#131528);border-color:rgba(99,102,241,0.2);">
       <div class="product-strip-content">
-        <div class="product-tag tag-dev" style="margin-bottom:1rem;">● In Development</div>
+        <div class="product-tag tag-live" style="margin-bottom:1rem;">● Live Now</div>
         <h3><span style="color:#818cf8">Lunas</span> — Lending Management App</h3>
-        <p>A tool for small lenders in the Philippines. Manage borrowers, loans, and payment schedules in one place. Currently in private beta.</p>
+        <p>A tool for small lenders in the Philippines. Manage borrowers, loans, and payment schedules in one place. Free to start.</p>
       </div>
       <div class="strip-actions">
-        <button onclick="navigate('products')" class="btn-secondary" style="text-align:center;">Learn More →</button>
+        <a href="https://lunas.bastech.app" target="_blank" style="background:#6366f1;color:white;padding:0.75rem 1.5rem;border-radius:var(--radius);font-weight:700;font-size:0.875rem;text-decoration:none;text-align:center;transition:background 0.2s;display:block;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Try Free →</a>
+        <button onclick="navigate('lunas')" class="btn-secondary" style="text-align:center;">Learn More</button>
       </div>
     </div>
   </section>
@@ -1850,54 +1851,57 @@
     <p>Practical tools for real life. Each product is designed with care, built to last, and made for the people who use them.</p>
   </div>
 
-  <div class="products-grid">
-    <!-- Grip — Featured -->
-    <div class="product-card featured fade-in">
-      <div class="product-card-left">
-        <div class="product-tag tag-live">● Live Now</div>
-        <div class="product-name">Grip <span>App</span></div>
-        <p class="product-tagline">Your money. Your grip.<br>A personal finance app built for everyday individuals and families who want clarity without complexity.</p>
-        <button onclick="navigate('grip')" class="btn-primary">Learn More →</button>
-      </div>
-      <div class="product-card-right">
-        <p style="font-size:0.73rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;">What's Inside</p>
-        <ul class="feature-list">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;">
+
+    <!-- Grip -->
+    <div class="product-strip fade-in">
+      <div class="product-strip-content">
+        <div class="product-tag tag-live" style="margin-bottom:1rem;">● Live Now</div>
+        <h3><span>Grip</span> — Personal Finance App</h3>
+        <p>Track accounts, log transactions, manage bills, and budget smarter. Grip gives everyday people a clear view of their money without the complexity.</p>
+        <ul class="feature-list" style="margin-top:1.2rem;">
           <li>Multi-account tracking: cash, bank, e-wallet, credit</li>
           <li>Transaction logging with full history</li>
           <li>Payables manager with skip-month &amp; active-months logic</li>
           <li>Budget planner by category</li>
-          <li>Dashboard with financial health overview</li>
-          <li>Designed for mobile &amp; desktop</li>
+          <li>Mobile &amp; desktop · Free to use</li>
         </ul>
       </div>
-    </div>
-
-    <!-- Lunas — Live -->
-    <div class="product-card lunas-card fade-in">
-      <div class="product-tag tag-live">● Live Now</div>
-      <div class="product-name">Lunas <span>App</span></div>
-      <p class="product-tagline">A lending management tool for small lenders in the Philippines. Track borrowers, loans, payment schedules, and collections — free to start.</p>
-      <ul class="feature-list">
-        <li>Borrower and loan management</li>
-        <li>Auto-generated payment schedules</li>
-        <li>Partial payments and late fee tracking</li>
-        <li>Borrower portal — borrowers view their own loans</li>
-        <li>Free plan available · Starter ₱299/mo · Pro ₱699/mo</li>
-      </ul>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
-        <span style="font-size:0.8rem;color:var(--text-dim);">Free plan forever. No credit card needed.</span>
-        <div style="display:flex;gap:8px;margin-left:12px;">
-          <a href="https://lunas.bastech.app" target="_blank" style="background:#6366f1;color:white;border:none;padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background 0.2s;white-space:nowrap;text-decoration:none;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Try Free →</a>
-          <button onclick="navigate('lunas')" style="background:rgba(99,102,241,0.12);color:#818cf8;border:1px solid rgba(99,102,241,0.25);padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap;">Learn More</button>
-        </div>
+      <div class="strip-actions">
+        <a href="https://grip.bastech.app" target="_blank" class="btn-primary" style="text-align:center;text-decoration:none;">Try Grip Free →</a>
+        <button onclick="navigate('grip')" class="btn-secondary" style="text-align:center;">Learn More</button>
       </div>
     </div>
 
-    <div class="product-card coming-soon-card fade-in">
-      <div class="product-tag tag-soon">On the Roadmap</div>
-      <h3>More to Come</h3>
-      <p>Bastech's roadmap is built around real problems. More products are planned.</p>
+    <!-- Lunas -->
+    <div class="product-strip fade-in" style="background:linear-gradient(135deg,#0f1020,#131528);border-color:rgba(99,102,241,0.2);">
+      <div class="product-strip-content">
+        <div class="product-tag tag-live" style="margin-bottom:1rem;">● Live Now</div>
+        <h3><span style="color:#818cf8">Lunas</span> — Lending Management App</h3>
+        <p>A tool for small lenders in the Philippines. Manage borrowers, loans, and payment schedules in one place — free to start.</p>
+        <ul class="feature-list" style="margin-top:1.2rem;">
+          <li style="--dot-color:#818cf8">Borrower and loan management</li>
+          <li>Auto-generated payment schedules</li>
+          <li>Partial payments and late fee tracking</li>
+          <li>Borrower portal — borrowers view their own loans</li>
+          <li>Free plan · Starter ₱299/mo · Pro ₱699/mo</li>
+        </ul>
+      </div>
+      <div class="strip-actions">
+        <a href="https://lunas.bastech.app" target="_blank" style="background:#6366f1;color:white;padding:0.75rem 1.5rem;border-radius:var(--radius);font-weight:700;font-size:0.875rem;text-decoration:none;text-align:center;transition:background 0.2s;display:block;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">Try Free →</a>
+        <button onclick="navigate('lunas')" class="btn-secondary" style="text-align:center;">Learn More</button>
+      </div>
     </div>
+
+    <!-- Coming Soon -->
+    <div class="product-strip fade-in" style="border-color:rgba(255,255,255,0.05);opacity:0.55;">
+      <div class="product-strip-content">
+        <div class="product-tag tag-soon" style="margin-bottom:1rem;">On the Roadmap</div>
+        <h3>More to Come</h3>
+        <p>Bastech's roadmap is built around real problems. More products are in the works.</p>
+      </div>
+    </div>
+
   </div>
 
 </div>
