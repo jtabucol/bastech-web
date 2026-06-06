@@ -145,6 +145,124 @@
 
     .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
+    /* ====== HOME HERO — SPLIT LAYOUT ====== */
+    #page-home .hero {
+      padding: 0;
+      max-width: 100%;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 45% 55%;
+      align-items: stretch;
+      text-align: left;
+      overflow: hidden;
+    }
+    #page-home .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3rem 3rem 4rem;
+      animation: hero-fade-left 0.6s ease-out both;
+    }
+    #page-home .hero h1 {
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 0;
+      text-align: left;
+    }
+    #page-home .hero p {
+      margin: 1.5rem 0 0;
+      max-width: 380px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      text-align: left;
+    }
+    #page-home .hero-actions {
+      margin-top: 2.5rem;
+      justify-content: flex-start;
+    }
+    #page-home .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      animation: hero-fade-right 0.8s ease-out both;
+    }
+    #page-home .hero-glow-bg {
+      position: absolute;
+      width: 780px; height: 780px;
+      background: radial-gradient(circle, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #page-home .ring-outer {
+      position: absolute;
+      width: 520px; height: 520px;
+      border: 3px solid rgba(249,115,22,0.4);
+      border-radius: 50%;
+      animation: spin-cw 18s linear infinite;
+    }
+    #page-home .satellite {
+      position: absolute;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: #F97316;
+      opacity: 0.75;
+      box-shadow: 0 0 22px rgba(249,115,22,0.55);
+    }
+    #page-home .satellite-1 { top: -17px; left: calc(50% - 17px); }
+    #page-home .satellite-2 { bottom: 38px; right: 10px; }
+    #page-home .satellite-3 { left: -17px; top: calc(50% - 17px); }
+    #page-home .ring-middle {
+      position: absolute;
+      width: 400px; height: 400px;
+      border: 2px solid rgba(249,115,22,0.3);
+      border-radius: 50%;
+      animation: spin-ccw 14s linear infinite;
+    }
+    #page-home .ring-inner {
+      position: absolute;
+      width: 270px; height: 270px;
+      border: 2px solid rgba(249,115,22,0.2);
+      border-radius: 50%;
+      animation: spin-cw 10s linear infinite;
+    }
+    #page-home .orb-center {
+      position: absolute;
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #F97316, #EA580C);
+      box-shadow: 0 0 70px rgba(249,115,22,0.65), 0 0 140px rgba(249,115,22,0.3);
+      animation: orb-pulse 3s ease-in-out infinite;
+    }
+    @keyframes spin-cw  { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+    @keyframes spin-ccw { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
+    @keyframes orb-pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.08); box-shadow: 0 0 80px rgba(249,115,22,0.7), 0 0 140px rgba(249,115,22,0.35); }
+    }
+    @keyframes hero-fade-left  { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes hero-fade-right { from { opacity: 0; transform: translateX(20px);  } to { opacity: 1; transform: translateX(0); } }
+    @media (max-width: 768px) {
+      #page-home .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      #page-home .hero-left {
+        justify-content: flex-start;
+        padding: 5rem 1.25rem 2rem;
+        order: 1;
+      }
+      #page-home .hero-right {
+        min-height: 320px;
+        order: 2;
+        transform: scale(0.72);
+      }
+    }
+
     /* ====== BUTTONS ====== */
     .btn-primary {
       background: var(--orange);
@@ -1769,13 +1887,28 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-badge">Now Available</div>
-    <h1>Software Built for<br><span class="highlight">Real People</span></h1>
-    <p>Bastech creates practical, thoughtfully designed tools that help everyday individuals and families take control of their finances and their lives.</p>
-    <div class="hero-actions">
-      <a onclick="navigate('products')" class="btn-primary">See Our Products</a>
-      <a onclick="navigate('about')"    class="btn-secondary">Our Story</a>
+    <div class="hero-left">
+      <h1>Tools built for<br><span class="highlight">real life.</span></h1>
+      <p>Bastech makes software that helps real people — track your money, manage your loans, and stay in control.</p>
+      <div class="hero-actions">
+        <a onclick="navigate('products')" class="btn-primary">See our products &rarr;</a>
+      </div>
+    </div>
+    <div class="hero-right" aria-hidden="true">
+      <div class="hero-glow-bg"></div>
+      <!-- Outer ring — 1 dot at top -->
+      <div class="ring-outer">
+        <div class="satellite satellite-1"></div>
+      </div>
+      <!-- Middle ring — 1 dot at bottom-right -->
+      <div class="ring-middle">
+        <div class="satellite satellite-2"></div>
+      </div>
+      <!-- Inner ring — 1 dot at left -->
+      <div class="ring-inner">
+        <div class="satellite satellite-3"></div>
+      </div>
+      <div class="orb-center"></div>
     </div>
   </div>
 
