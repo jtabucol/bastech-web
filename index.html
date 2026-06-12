@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bastech | Software Built for Real People</title>
+  <meta name="description" content="Bastech builds purposeful software for real life — Grip for personal finance and Lunas for small lenders in the Philippines. Simple, honest tools that are free to start.">
+  <meta name="theme-color" content="#0B0B12">
+  <link rel="canonical" href="https://www.bastech.app/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230B0B12'/%3E%3Cline x1='20' y1='14' x2='29' y2='14' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='14' y1='24' x2='35' y2='24' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='9' y1='34' x2='40' y2='34' stroke='%23F26722' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <!-- Social link previews (Open Graph + Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bastech">
+  <meta property="og:title" content="Bastech | Software Built for Real People">
+  <meta property="og:description" content="Purposeful software for real life — Grip for personal finance and Lunas for small lenders in the Philippines. Free to start.">
+  <meta property="og:url" content="https://www.bastech.app/">
+  <meta property="og:image" content="https://www.bastech.app/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bastech | Software Built for Real People">
+  <meta name="twitter:description" content="Purposeful software for real life — Grip for personal finance and Lunas for small lenders in the Philippines. Free to start.">
+  <meta name="twitter:image" content="https://www.bastech.app/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -86,6 +103,60 @@
       transition: background 0.2s, transform 0.15s;
     }
     .nav-cta:hover { background: #EA6C0A; transform: translateY(-1px); }
+
+    /* Mobile hamburger + menu */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px; height: 40px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.2s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      z-index: 99;
+      background: rgba(11,11,18,0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.25rem 1.25rem;
+      flex-direction: column;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.active { color: var(--orange); }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
 
     /* ====== PAGES ====== */
     .page { display: none; padding-top: 68px; min-height: 100vh; }
@@ -190,6 +261,15 @@
       justify-content: center;
       min-height: 400px;
       animation: hero-fade-right 0.8s ease-out both;
+    }
+    #page-home .orbit-wrap {
+      position: relative;
+      width: 520px; height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      will-change: transform, opacity;
     }
     #page-home .hero-glow-bg {
       position: absolute;
@@ -574,6 +654,15 @@
     .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+    /* When GSAP drives the motion, neutralize the CSS fallback so the two never fight */
+    .gsap-on .fade-in { opacity: 1; transform: none; transition: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width: 900px) {
       .about-story { grid-template-columns: 1fr; gap: 2rem; }
@@ -585,6 +674,7 @@
     @media (max-width: 640px) {
       nav { padding: 0 1.25rem; }
       .nav-links { display: none; }
+      .nav-toggle { display: flex; }
       section { padding: 3rem 1.25rem; }
       .hero { padding: 5rem 1.25rem 3rem; }
       .product-strip { padding: 2rem; }
@@ -690,7 +780,6 @@
       line-height: 1.7;
       margin-bottom: 40px;
       max-width: 520px;
-      text-align: justify;
     }
 
 #page-grip .hero-actions {
@@ -1411,7 +1500,6 @@
       line-height: 1.7;
       margin-bottom: 40px;
       max-width: 520px;
-      text-align: justify;
     }
 
     #page-lunas .hero-actions {
@@ -1851,34 +1939,52 @@
 </head>
 <body>
 
+<!-- Official Bastech logo (extracted from brand SVG) — referenced by nav + footer -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+  <symbol id="bastech-logo" viewBox="105 540 1270 305" fill="none">
+    <line x1="218.10" y1="625.80" x2="301.87" y2="625.80" stroke="#ffffff" stroke-width="26.25" stroke-linecap="round"/>
+    <line x1="162.37" y1="692.75" x2="359.03" y2="692.75" stroke="#ffffff" stroke-width="26.25" stroke-linecap="round"/>
+    <line x1="125.12" y1="759.71" x2="400.05" y2="759.71" stroke="#ffffff" stroke-width="26.25" stroke-linecap="round"/>
+    <line x1="467.09" y1="560" x2="467.09" y2="825" stroke="#ffffff" stroke-width="26.25" stroke-linecap="round"/>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(521.003244, 732.079549)"><g><path d="M 66.703125 -19.953125 C 71.453125 -19.953125 75.441406 -20.519531 78.671875 -21.65625 C 81.898438 -22.800781 84.476562 -24.320312 86.40625 -26.21875 C 88.34375 -28.125 89.738281 -30.34375 90.59375 -32.875 C 91.445312 -35.40625 91.875 -38.097656 91.875 -40.953125 C 91.875 -43.921875 91.394531 -46.59375 90.4375 -48.96875 C 89.488281 -51.351562 88 -53.382812 85.96875 -55.0625 C 83.945312 -56.738281 81.335938 -58.019531 78.140625 -58.90625 C 74.941406 -59.789062 71.09375 -60.234375 66.59375 -60.234375 L 40.859375 -60.234375 L 40.859375 -19.953125 Z M 40.859375 -117.625 L 40.859375 -77.90625 L 61.1875 -77.90625 C 69.925781 -77.90625 76.523438 -79.488281 80.984375 -82.65625 C 85.453125 -85.820312 87.6875 -90.859375 87.6875 -97.765625 C 87.6875 -104.921875 85.660156 -110.019531 81.609375 -113.0625 C 77.554688 -116.101562 71.222656 -117.625 62.609375 -117.625 Z M 62.609375 -137.375 C 71.597656 -137.375 79.289062 -136.519531 85.6875 -134.8125 C 92.09375 -133.101562 97.335938 -130.664062 101.421875 -127.5 C 105.503906 -124.332031 108.492188 -120.5 110.390625 -116 C 112.296875 -111.507812 113.25 -106.441406 113.25 -100.796875 C 113.25 -97.566406 112.773438 -94.476562 111.828125 -91.53125 C 110.878906 -88.59375 109.40625 -85.835938 107.40625 -83.265625 C 105.40625 -80.703125 102.867188 -78.375 99.796875 -76.28125 C 96.734375 -74.195312 93.078125 -72.425781 88.828125 -70.96875 C 107.703125 -66.726562 117.140625 -56.53125 117.140625 -40.375 C 117.140625 -34.550781 116.03125 -29.164062 113.8125 -24.21875 C 111.601562 -19.28125 108.375 -15.019531 104.125 -11.4375 C 99.882812 -7.863281 94.660156 -5.0625 88.453125 -3.03125 C 82.242188 -1.007812 75.148438 0 67.171875 0 L 15.296875 0 L 15.296875 -137.375 Z M 62.609375 -137.375 "/></g></g></g>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(646.123298, 732.079549)"><g><path d="M 87.875 -51.875 L 71.15625 -97.578125 C 70.332031 -99.597656 69.476562 -102 68.59375 -104.78125 C 67.707031 -107.570312 66.820312 -110.582031 65.9375 -113.8125 C 65.113281 -110.582031 64.257812 -107.554688 63.375 -104.734375 C 62.488281 -101.921875 61.632812 -99.472656 60.8125 -97.390625 L 44.171875 -51.875 Z M 133.015625 0 L 113.25 0 C 111.03125 0 109.222656 -0.550781 107.828125 -1.65625 C 106.441406 -2.769531 105.398438 -4.148438 104.703125 -5.796875 L 94.4375 -33.828125 L 37.53125 -33.828125 L 27.265625 -5.796875 C 26.753906 -4.335938 25.769531 -3.003906 24.3125 -1.796875 C 22.863281 -0.597656 21.0625 0 18.90625 0 L -1.046875 0 L 53.015625 -137.375 L 79.046875 -137.375 Z M 133.015625 0 "/></g></g></g>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(778.083619, 732.079549)"><g><path d="M 88.453125 -112.390625 C 87.691406 -111.066406 86.882812 -110.101562 86.03125 -109.5 C 85.175781 -108.894531 84.113281 -108.59375 82.84375 -108.59375 C 81.519531 -108.59375 80.082031 -109.082031 78.53125 -110.0625 C 76.976562 -111.050781 75.125 -112.144531 72.96875 -113.34375 C 70.8125 -114.550781 68.289062 -115.644531 65.40625 -116.625 C 62.53125 -117.601562 59.128906 -118.09375 55.203125 -118.09375 C 51.648438 -118.09375 48.546875 -117.664062 45.890625 -116.8125 C 43.234375 -115.957031 41 -114.769531 39.1875 -113.25 C 37.382812 -111.726562 36.039062 -109.90625 35.15625 -107.78125 C 34.269531 -105.664062 33.828125 -103.335938 33.828125 -100.796875 C 33.828125 -97.566406 34.726562 -94.875 36.53125 -92.71875 C 38.332031 -90.570312 40.722656 -88.738281 43.703125 -87.21875 C 46.679688 -85.695312 50.066406 -84.332031 53.859375 -83.125 C 57.660156 -81.925781 61.554688 -80.644531 65.546875 -79.28125 C 69.546875 -77.914062 73.441406 -76.332031 77.234375 -74.53125 C 81.035156 -72.726562 84.425781 -70.445312 87.40625 -67.6875 C 90.382812 -64.9375 92.773438 -61.566406 94.578125 -57.578125 C 96.378906 -53.585938 97.28125 -48.738281 97.28125 -43.03125 C 97.28125 -36.832031 96.21875 -31.023438 94.09375 -25.609375 C 91.976562 -20.191406 88.878906 -15.472656 84.796875 -11.453125 C 80.710938 -7.429688 75.722656 -4.265625 69.828125 -1.953125 C 63.941406 0.355469 57.195312 1.515625 49.59375 1.515625 C 45.21875 1.515625 40.910156 1.085938 36.671875 0.234375 C 32.429688 -0.617188 28.363281 -1.835938 24.46875 -3.421875 C 20.570312 -5.003906 16.910156 -6.90625 13.484375 -9.125 C 10.066406 -11.34375 7.03125 -13.8125 4.375 -16.53125 L 11.875 -28.78125 C 12.507812 -29.675781 13.332031 -30.421875 14.34375 -31.015625 C 15.351562 -31.617188 16.429688 -31.921875 17.578125 -31.921875 C 19.160156 -31.921875 20.867188 -31.269531 22.703125 -29.96875 C 24.546875 -28.675781 26.734375 -27.238281 29.265625 -25.65625 C 31.796875 -24.070312 34.753906 -22.628906 38.140625 -21.328125 C 41.535156 -20.023438 45.609375 -19.375 50.359375 -19.375 C 57.640625 -19.375 63.273438 -21.097656 67.265625 -24.546875 C 71.253906 -28.003906 73.25 -32.960938 73.25 -39.421875 C 73.25 -43.035156 72.34375 -45.984375 70.53125 -48.265625 C 68.726562 -50.546875 66.335938 -52.460938 63.359375 -54.015625 C 60.390625 -55.566406 57.003906 -56.878906 53.203125 -57.953125 C 49.398438 -59.023438 45.535156 -60.195312 41.609375 -61.46875 C 37.679688 -62.738281 33.816406 -64.257812 30.015625 -66.03125 C 26.222656 -67.800781 22.835938 -70.109375 19.859375 -72.953125 C 16.878906 -75.804688 14.484375 -79.367188 12.671875 -83.640625 C 10.867188 -87.921875 9.96875 -93.195312 9.96875 -99.46875 C 9.96875 -104.476562 10.96875 -109.359375 12.96875 -114.109375 C 14.96875 -118.859375 17.863281 -123.066406 21.65625 -126.734375 C 25.457031 -130.410156 30.144531 -133.359375 35.71875 -135.578125 C 41.289062 -137.796875 47.691406 -138.90625 54.921875 -138.90625 C 63.023438 -138.90625 70.492188 -137.632812 77.328125 -135.09375 C 84.171875 -132.5625 90 -129.015625 94.8125 -124.453125 Z M 88.453125 -112.390625 "/></g></g></g>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(882.302825, 732.079549)"><g><path d="M 111.25 -116.390625 L 69.828125 -116.390625 L 69.828125 0 L 44.28125 0 L 44.28125 -116.390625 L 2.84375 -116.390625 L 2.84375 -137.375 L 111.25 -137.375 Z M 111.25 -116.390625 "/></g></g></g>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(996.307416, 732.079549)"><g><path d="M 40.953125 -117.046875 L 40.953125 -78.953125 L 89.015625 -78.953125 L 89.015625 -59.28125 L 40.953125 -59.28125 L 40.953125 -20.421875 L 101.9375 -20.421875 L 101.9375 0 L 15.296875 0 L 15.296875 -137.375 L 101.9375 -137.375 L 101.9375 -117.046875 Z M 40.953125 -117.046875 "/></g></g></g>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(1105.561816, 732.079549)"><g><path d="M 109.640625 -32.390625 C 111.035156 -32.390625 112.269531 -31.851562 113.34375 -30.78125 L 123.421875 -19.859375 C 117.835938 -12.953125 110.976562 -7.660156 102.84375 -3.984375 C 94.707031 -0.316406 84.9375 1.515625 73.53125 1.515625 C 63.332031 1.515625 54.164062 -0.222656 46.03125 -3.703125 C 37.894531 -7.191406 30.941406 -12.035156 25.171875 -18.234375 C 19.410156 -24.441406 14.992188 -31.851562 11.921875 -40.46875 C 8.847656 -49.082031 7.3125 -58.488281 7.3125 -68.6875 C 7.3125 -79.007812 8.957031 -88.460938 12.25 -97.046875 C 15.550781 -105.628906 20.191406 -113.023438 26.171875 -119.234375 C 32.160156 -125.441406 39.300781 -130.269531 47.59375 -133.71875 C 55.894531 -137.175781 65.082031 -138.90625 75.15625 -138.90625 C 85.15625 -138.90625 94.035156 -137.253906 101.796875 -133.953125 C 109.554688 -130.660156 116.160156 -126.359375 121.609375 -121.046875 L 113.0625 -109.171875 C 112.550781 -108.410156 111.898438 -107.742188 111.109375 -107.171875 C 110.316406 -106.597656 109.222656 -106.3125 107.828125 -106.3125 C 106.878906 -106.3125 105.898438 -106.578125 104.890625 -107.109375 C 103.878906 -107.648438 102.769531 -108.316406 101.5625 -109.109375 C 100.363281 -109.898438 98.972656 -110.769531 97.390625 -111.71875 C 95.804688 -112.675781 93.96875 -113.550781 91.875 -114.34375 C 89.78125 -115.132812 87.351562 -115.796875 84.59375 -116.328125 C 81.84375 -116.867188 78.664062 -117.140625 75.0625 -117.140625 C 68.914062 -117.140625 63.289062 -116.046875 58.1875 -113.859375 C 53.09375 -111.679688 48.707031 -108.515625 45.03125 -104.359375 C 41.351562 -100.210938 38.5 -95.144531 36.46875 -89.15625 C 34.445312 -83.175781 33.4375 -76.351562 33.4375 -68.6875 C 33.4375 -60.957031 34.53125 -54.082031 36.71875 -48.0625 C 38.90625 -42.050781 41.863281 -36.988281 45.59375 -32.875 C 49.332031 -28.757812 53.734375 -25.609375 58.796875 -23.421875 C 63.867188 -21.234375 69.320312 -20.140625 75.15625 -20.140625 C 78.632812 -20.140625 81.78125 -20.328125 84.59375 -20.703125 C 87.414062 -21.085938 90.015625 -21.691406 92.390625 -22.515625 C 94.765625 -23.335938 97.015625 -24.394531 99.140625 -25.6875 C 101.265625 -26.988281 103.367188 -28.59375 105.453125 -30.5 C 106.085938 -31.070312 106.753906 -31.53125 107.453125 -31.875 C 108.148438 -32.21875 108.878906 -32.390625 109.640625 -32.390625 Z M 109.640625 -32.390625 "/></g></g></g>
+    <g fill="#ffffff" fill-opacity="1"><g transform="translate(1231.251899, 732.079549)"><g><path d="M 131.109375 -137.375 L 131.109375 0 L 105.453125 0 L 105.453125 -60.046875 L 40.953125 -60.046875 L 40.953125 0 L 15.296875 0 L 15.296875 -137.375 L 40.953125 -137.375 L 40.953125 -78.28125 L 105.453125 -78.28125 L 105.453125 -137.375 Z M 131.109375 -137.375 "/></g></g></g>
+    <path fill="#f97316" d="M 649.816406 770.3125 C 671.945312 770.050781 878.734375 767.289062 981.339844 767.519531 C 1087.390625 767.753906 1244.667969 770.304688 1244.667969 770.3125 C 1244.667969 770.316406 1087.390625 772.867188 981.339844 773.105469 C 878.730469 773.332031 671.945312 770.574219 649.816406 770.3125 Z M 649.816406 770.3125 " fill-opacity="1" fill-rule="evenodd"/>
+    <path fill="#f97316" d="M 654.90625 775.402344 C 677.035156 775.140625 883.824219 772.378906 986.429688 772.609375 C 1092.480469 772.84375 1249.757812 775.394531 1249.757812 775.402344 C 1249.757812 775.410156 1092.480469 777.957031 986.429688 778.195312 C 883.824219 778.421875 677.035156 775.664062 654.90625 775.402344 Z M 654.90625 775.402344 " fill-opacity="1" fill-rule="evenodd"/>
+  </symbol>
+</svg>
+
 <!-- ====== NAV ====== -->
 <nav>
   <div class="nav-logo" onclick="navigate('home')">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="160" height="32" fill="none" style="display:block;flex-shrink:0;">
-  <!-- Bottom line (longest) -->
-  <line x1="2" y1="36" x2="44" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <!-- Middle line -->
-  <line x1="7" y1="24" x2="39" y2="24" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <!-- Top line (shortest) -->
-  <line x1="13" y1="12" x2="33" y2="12" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <!-- Vertical divider bar -->
-  <line x1="55" y1="4" x2="55" y2="44" stroke="white" stroke-width="2.5"/>
-  <!-- BASTECH wordmark -->
-  <text x="68" y="34" font-family="'Inter','Arial Black',Arial,sans-serif" font-weight="900" font-size="26" fill="white" letter-spacing="1">BASTECH</text>
-  <!-- Orange underline under BASTECH only -->
-  <line x1="68" y1="42" x2="122" y2="42" stroke="#F97316" stroke-width="3.5" stroke-linecap="round"/>
-</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="38" fill="none" style="display:block;flex-shrink:0;">
+      <use href="#bastech-logo" width="160" height="38"/>
+    </svg>
   </div>
 
   <ul class="nav-links">
-    <li><a onclick="navigate('home')"     id="nav-home"     class="active">Home</a></li>
-    <li><a onclick="navigate('products')" id="nav-products">Products</a></li>
-    <li><a onclick="navigate('about')"    id="nav-about">About</a></li>
-    <li><a onclick="navigate('contact')"  id="nav-contact">Contact</a></li>
+    <li><a href="/" onclick="navigate('home');return false;"                 id="nav-home"     class="active">Home</a></li>
+    <li><a href="/products" onclick="navigate('products');return false;"     id="nav-products">Products</a></li>
+    <li><a href="/about" onclick="navigate('about');return false;"           id="nav-about">About</a></li>
+    <li><a href="/contact" onclick="navigate('contact');return false;"       id="nav-contact">Contact</a></li>
   </ul>
 
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/" onclick="navigate('home');return false;"             id="mnav-home" class="active">Home</a>
+  <a href="/products" onclick="navigate('products');return false;" id="mnav-products">Products</a>
+  <a href="/about" onclick="navigate('about');return false;"       id="mnav-about">About</a>
+  <a href="/contact" onclick="navigate('contact');return false;"   id="mnav-contact">Contact</a>
+</div>
 
 <!-- ========================================
      HOME PAGE
@@ -1888,6 +1994,7 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-left">
+      <div><span class="hero-badge" style="margin-bottom:1.75rem;">● Grip &amp; Lunas — live now</span></div>
       <h1>Tools built for<br><span class="highlight">real life.</span></h1>
       <p>Bastech makes software that helps real people — track your money, manage your loans, and stay in control.</p>
       <div class="hero-actions">
@@ -1895,20 +2002,22 @@
       </div>
     </div>
     <div class="hero-right" aria-hidden="true">
-      <div class="hero-glow-bg"></div>
-      <!-- Outer ring — 1 dot at top -->
-      <div class="ring-outer">
-        <div class="satellite satellite-1"></div>
+      <div class="orbit-wrap">
+        <div class="hero-glow-bg"></div>
+        <!-- Outer ring — 1 dot at top -->
+        <div class="ring-outer">
+          <div class="satellite satellite-1"></div>
+        </div>
+        <!-- Middle ring — 1 dot at bottom-right -->
+        <div class="ring-middle">
+          <div class="satellite satellite-2"></div>
+        </div>
+        <!-- Inner ring — 1 dot at left -->
+        <div class="ring-inner">
+          <div class="satellite satellite-3"></div>
+        </div>
+        <div class="orb-center"></div>
       </div>
-      <!-- Middle ring — 1 dot at bottom-right -->
-      <div class="ring-middle">
-        <div class="satellite satellite-2"></div>
-      </div>
-      <!-- Inner ring — 1 dot at left -->
-      <div class="ring-inner">
-        <div class="satellite satellite-3"></div>
-      </div>
-      <div class="orb-center"></div>
     </div>
   </div>
 
@@ -2053,18 +2162,18 @@
         <p class="section-label">Our Story</p>
         <h2 class="section-title">The name means something</h2>
         <p>Bastech was founded on a simple belief: people deserve software that works for them. The name itself is personal, rooted in meaning, and built to last.</p>
-        <p>It started with a frustration: using tools that almost solve your problem but never quite get there. Grip was the answer to that.</p>
+        <p>It started with a frustration: using tools that almost solve your problem but never quite get there. Grip was the first answer to that. Lunas followed — built for small lenders still running their business from notebooks and spreadsheets.</p>
         <p>We're a small, focused company building products for the everyday individual. No enterprise pitch decks. No buzzwords. Just software that makes life a little easier.</p>
       </div>
       <div class="about-stat-box">
         <div class="stat-row">
           <div class="stat-item">
-            <div class="stat-num">1</div>
-            <div class="stat-label">Live product, growing</div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Live products — Grip &amp; Lunas</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">PH</div>
-            <div class="stat-label"></div>
+            <div class="stat-label">Proudly built in the Philippines</div>
           </div>
           <div class="stat-item">
             <div class="stat-num">∞</div>
@@ -2162,8 +2271,8 @@
         <div class="contact-item">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="" ><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
           <div>
-            <span>Current Product</span>
-            <strong>grip.bastech.app</strong>
+            <span>Our Products</span>
+            <strong><a href="https://grip.bastech.app" target="_blank" style="color:var(--text);text-decoration:none;">Grip</a> · <a href="https://lunas.bastech.app" target="_blank" style="color:var(--text);text-decoration:none;">Lunas</a></strong>
           </div>
         </div>
       </div>
@@ -2193,7 +2302,7 @@
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea name="message" placeholder="Tell us what's on your mind..."></textarea>
+          <textarea name="message" placeholder="Tell us what's on your mind..." required></textarea>
         </div>
         <button type="submit" class="form-submit">Send Message →</button>
       </form>
@@ -2618,7 +2727,7 @@
               <!-- Collection bar -->
               <div class="phone-section-title" style="margin-top:12px">May Collections</div>
               <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:4px;">
-                <div style="width:72%;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:3px;"></div>
+                <div class="lunas-collect-fill" style="width:72%;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:3px;"></div>
               </div>
               <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--slate-400);">
                 <span>₱30,600 collected</span><span>72% of target</span>
@@ -3024,44 +3133,80 @@
 <!-- ====== FOOTER ====== -->
 <div class="footer-wrap">
   <div class="footer-logo" onclick="navigate('home')">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="130" height="26" fill="none" style="display:block;opacity:0.7;">
-  <line x1="2" y1="36" x2="44" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <line x1="7" y1="24" x2="39" y2="24" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <line x1="13" y1="12" x2="33" y2="12" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <line x1="55" y1="4" x2="55" y2="44" stroke="white" stroke-width="2.5"/>
-  <text x="68" y="34" font-family="'Inter','Arial Black',Arial,sans-serif" font-weight="900" font-size="26" fill="white" letter-spacing="1">BASTECH</text>
-  <line x1="68" y1="42" x2="122" y2="42" stroke="#F97316" stroke-width="3.5" stroke-linecap="round"/>
-</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="130" height="31" fill="none" style="display:block;opacity:0.7;">
+      <use href="#bastech-logo" width="130" height="31"/>
+    </svg>
   </div>
   <ul class="footer-links">
-    <li><a onclick="navigate('home')">Home</a></li>
-    <li><a onclick="navigate('products')">Products</a></li>
-    <li><a onclick="navigate('about')">About</a></li>
-    <li><a onclick="navigate('contact')">Contact</a></li>
-    <li><a onclick="navigate('terms')">Terms &amp; Conditions</a></li>
-    <li><a onclick="navigate('privacy')">Privacy Policy</a></li>
+    <li><a href="/" onclick="navigate('home');return false;">Home</a></li>
+    <li><a href="/products" onclick="navigate('products');return false;">Products</a></li>
+    <li><a href="/about" onclick="navigate('about');return false;">About</a></li>
+    <li><a href="/contact" onclick="navigate('contact');return false;">Contact</a></li>
+    <li><a href="/terms" onclick="navigate('terms');return false;">Terms &amp; Conditions</a></li>
+    <li><a href="/privacy" onclick="navigate('privacy');return false;">Privacy Policy</a></li>
     <li><a href="https://grip.bastech.app" target="_blank">Grip App ↗</a></li>
+    <li><a href="https://lunas.bastech.app" target="_blank">Lunas App ↗</a></li>
   </ul>
   <p class="footer-copy">© 2026 Bastech. Built with intention.</p>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
   // ====== NAVIGATION ======
-  function navigate(page) {
+  const pageTitles = {
+    home:     'Bastech | Software Built for Real People',
+    products: 'Products | Bastech',
+    about:    'About | Bastech',
+    contact:  'Contact | Bastech',
+    grip:     'Grip — Personal Finance App | Bastech',
+    lunas:    'Lunas — Lending Management App | Bastech',
+    terms:    'Terms & Conditions | Bastech',
+    privacy:  'Privacy Policy | Bastech'
+  };
+
+  function navigate(page, pushHistory = true) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => a.classList.remove('active'));
     const target = document.getElementById('page-' + page);
     if (target) target.classList.add('active');
     const navLink = document.getElementById('nav-' + page);
     if (navLink) navLink.classList.add('active');
-    if (window.location.protocol !== 'file:') {
-      history.replaceState(null, '', page === 'home' ? '/' : '/' + page);
+    const mnavLink = document.getElementById('mnav-' + page);
+    if (mnavLink) mnavLink.classList.add('active');
+    document.title = pageTitles[page] || pageTitles.home;
+    closeMobileMenu();
+    if (pushHistory && window.location.protocol !== 'file:') {
+      history.pushState({ page }, '', page === 'home' ? '/' : '/' + page);
     }
     window.scrollTo({ top: 0, behavior: 'instant' });
-    setTimeout(initAnimations, 80);
+    setTimeout(initMotion, 80);
   }
 
-  // ====== SCROLL ANIMATIONS ======
+  // Browser back/forward buttons move between pages
+  window.addEventListener('popstate', (e) => {
+    const page = (e.state && e.state.page) || window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
+    navigate(document.getElementById('page-' + page) ? page : 'home', false);
+  });
+
+  // ====== MOBILE MENU ======
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('nav-toggle');
+    const isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  }
+
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('nav-toggle');
+    if (menu) menu.classList.remove('open');
+    if (btn) { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu'); }
+  }
+
+  // ====== SCROLL ANIMATIONS (CSS fallback — used when GSAP can't load) ======
   function initAnimations() {
     const els = document.querySelectorAll('#page-' + currentPage() + ' .fade-in');
     const observer = new IntersectionObserver((entries) => {
@@ -3076,6 +3221,94 @@
       el.style.transitionDelay = (i * 0.07) + 's';
       observer.observe(el);
     });
+  }
+
+  // ====== MOTION SYSTEM (GSAP + ScrollTrigger) ======
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el) {
+    const m = el.textContent.trim().match(/^([^\d]*)([\d,]+)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(target) || target === 0) return;
+    const obj = { v: 0 };
+    gsap.to(obj, {
+      v: target, duration: 1.1, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+      onUpdate: () => { el.textContent = m[1] + Math.round(obj.v).toLocaleString() + m[3]; }
+    });
+  }
+
+  function initMotion() {
+    if (!window.gsap || !window.ScrollTrigger || reducedMotion) { initAnimations(); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    document.documentElement.classList.add('gsap-on');
+
+    // Clear everything from the previous page
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    gsap.globalTimeline.clear();
+
+    const page = document.querySelector('.page.active');
+    if (!page) return;
+    const id = page.id;
+
+    // --- Staggered card reveals (all pages) ---
+    const cards = [...new Set(page.querySelectorAll(
+      '.fade-in, .pillar-card, .mvg-card, .value-card, .feature-card, .testimonial-card, .pricing-card, .how-step, .product-strip'
+    ))];
+    if (cards.length) {
+      gsap.set(cards, { clearProps: 'all' });
+      gsap.set(cards, { opacity: 0, y: 28 });
+      ScrollTrigger.batch(cards, {
+        start: 'top 88%', once: true,
+        onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, duration: 0.7, stagger: 0.09, ease: 'power2.out', overwrite: true })
+      });
+    }
+
+    // --- Stat count-ups ---
+    page.querySelectorAll('.stat-value, .stat-num').forEach(countUp);
+
+    // --- Home: orbit reacts to scroll ---
+    if (id === 'page-home') {
+      const orbit = page.querySelector('.orbit-wrap');
+      if (orbit) {
+        gsap.set(orbit, { clearProps: 'all' });
+        gsap.to(orbit, {
+          rotate: 110, scale: 0.78, opacity: 0.25, y: 90, ease: 'none',
+          scrollTrigger: { trigger: page.querySelector('.hero'), start: 'top top', end: 'bottom top', scrub: 0.6 }
+        });
+      }
+    }
+
+    // --- Grip: phone mockup comes alive ---
+    if (id === 'page-grip') {
+      page.querySelectorAll('.phone-budget-fill').forEach(el => { if (!el.dataset.w) el.dataset.w = el.style.width; });
+      const tl = gsap.timeline({ delay: 0.15 });
+      tl.fromTo('#page-grip .phone', { y: 44, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' })
+        .fromTo('#page-grip .phone-balance-card', { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(1.6)' }, '-=0.3')
+        .fromTo('#page-grip .phone-txn', { x: 26, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, stagger: 0.13, ease: 'power2.out' }, '-=0.15')
+        .fromTo('#page-grip .phone-budget-fill', { width: 0 }, { width: (i, el) => el.dataset.w, duration: 0.8, stagger: 0.16, ease: 'power2.out' }, '-=0.1');
+    }
+
+    // --- Lunas: borrower list comes alive ---
+    if (id === 'page-lunas') {
+      const fill = page.querySelector('.lunas-collect-fill');
+      if (fill && !fill.dataset.w) fill.dataset.w = fill.style.width;
+      const tl = gsap.timeline({ delay: 0.15 });
+      tl.fromTo('#page-lunas .phone', { y: 44, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' })
+        .fromTo('#page-lunas .phone-header-card', { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(1.6)' }, '-=0.3')
+        .fromTo('#page-lunas .borrower-row', { x: 26, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, stagger: 0.14, ease: 'power2.out' }, '-=0.15')
+        .fromTo('#page-lunas .status-badge', { scale: 0 }, { scale: 1, duration: 0.35, stagger: 0.12, ease: 'back.out(2.2)' }, '-=0.35');
+      if (fill) tl.fromTo(fill, { width: 0 }, { width: fill.dataset.w, duration: 0.8, ease: 'power2.out' }, '-=0.2');
+    }
+
+    // --- Page-header heroes get a gentle entrance ---
+    const header = page.querySelector('.page-header');
+    if (header) {
+      gsap.fromTo(header.children, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' });
+    }
+
+    ScrollTrigger.refresh();
   }
 
   function currentPage() {
@@ -3173,15 +3406,24 @@
   }
 
   // ====== INIT ======
+  // SPA pages always open at the top — keep the browser from restoring a stale
+  // scroll position after ScrollTrigger has measured the page.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
   document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     // Deep links: /terms, /privacy, etc. land on the right page (Vercel rewrites all paths here)
     const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-    if (path && document.getElementById('page-' + path)) {
-      navigate(path);
-    } else {
-      initAnimations();
+    const page = (path && document.getElementById('page-' + path)) ? path : 'home';
+    if (page !== 'home') navigate(page, false);
+    else initMotion();
+    if (window.location.protocol !== 'file:') {
+      history.replaceState({ page }, '', page === 'home' ? '/' : '/' + page);
     }
   });
+
+  // Re-measure trigger positions once fonts and images have settled
+  window.addEventListener('load', () => { if (window.ScrollTrigger) ScrollTrigger.refresh(); });
 </script>
 </body>
 </html>
