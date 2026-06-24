@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stressed about money? Get your Financial Clarity Score — Grip</title>
+<meta name="description" content="A free 2-minute check on how clear and in-control your money really is. Get your Financial Clarity Score plus a personalized plan." />
+<meta property="og:title" content="Stressed about money — even when you work hard for it?" />
+<meta property="og:description" content="Take the free 2-minute Financial Clarity Score. Find out exactly where your money stands — and what to fix first." />
+<meta property="og:image" content="https://www.bastech.app/social/grip-scorecard-og.jpg" />
+<meta name="theme-color" content="#F26722" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --orange:#F26722; --orange-dark:#d6571a; --orange-soft:#fff1e9;
+    --slate-900:#0f172a; --slate-700:#334155; --slate-500:#64748b; --slate-300:#cbd5e1;
+    --slate-100:#f1f5f9; --slate-50:#f8fafc; --white:#ffffff;
+    --green:#16a34a; --amber:#f59e0b; --red:#ef4444;
+    --shadow:0 10px 30px rgba(15,23,42,.10); --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:linear-gradient(180deg,#fff7f2 0%,var(--slate-50) 40%,var(--slate-50) 100%);
+    color:var(--slate-900); -webkit-font-smoothing:antialiased;
+    min-height:100%; display:flex; flex-direction:column; align-items:center;
+    padding:20px 16px 60px;
+  }
+  .wrap{width:100%;max-width:480px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:9px;justify-content:center;margin:6px 0 26px}
+  .brand .dot{width:30px;height:30px;border-radius:9px;background:var(--orange);display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px;box-shadow:0 4px 12px rgba(242,103,34,.4)}
+  .brand b{font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .brand span{color:var(--slate-500);font-size:13px;font-weight:500}
+
+  .card{background:var(--white);border:1px solid var(--slate-100);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px}
+
+  .eyebrow{display:inline-block;background:var(--orange-soft);color:var(--orange-dark);font-weight:600;font-size:12.5px;padding:6px 12px;border-radius:999px;margin-bottom:16px}
+  h1{font-size:26px;line-height:1.2;letter-spacing:-.025em;font-weight:800;margin-bottom:12px}
+  .lead{color:var(--slate-700);font-size:15.5px;line-height:1.55;margin-bottom:22px}
+  .lead b{color:var(--slate-900);font-weight:600}
+
+  /* value proposition */
+  .vp{background:var(--slate-50);border-radius:14px;padding:18px;margin-bottom:20px}
+  .vp h4{font-size:13px;color:var(--slate-700);font-weight:600;margin-bottom:14px;line-height:1.45}
+  .vp .row{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+  .vp .row:last-child{margin-bottom:0}
+  .vp .n{width:24px;height:24px;border-radius:7px;background:var(--orange);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+  .vp .row b{font-size:14.5px;font-weight:700;display:block;margin-bottom:1px}
+  .vp .row span{font-size:13px;color:var(--slate-500)}
+
+  /* credibility */
+  .cred{display:flex;gap:11px;align-items:flex-start;font-size:12.5px;color:var(--slate-500);line-height:1.5;margin-bottom:22px;padding:0 2px}
+  .cred .badge{width:20px;height:20px;border-radius:6px;background:var(--slate-100);color:var(--slate-500);display:grid;place-items:center;flex-shrink:0;font-weight:800;font-size:11px}
+  .cred b{color:var(--slate-700)}
+
+  .btn{display:block;width:100%;background:var(--orange);color:#fff;border:none;border-radius:13px;padding:16px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:transform .08s ease,background .15s ease;box-shadow:0 6px 16px rgba(242,103,34,.32)}
+  .btn:hover{background:var(--orange-dark)}
+  .btn:active{transform:scale(.985)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn-ghost{background:transparent;color:var(--slate-500);box-shadow:none;font-weight:600;font-size:14px;padding:10px}
+  .btn-ghost:hover{background:transparent;color:var(--slate-700)}
+  .cta-micro{text-align:center;font-size:12.5px;color:var(--slate-500);margin-top:12px}
+
+  /* progress */
+  .progress-row{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .progress{flex:1;height:8px;background:var(--slate-100);border-radius:999px;overflow:hidden}
+  .progress i{display:block;height:100%;width:0;background:var(--orange);border-radius:999px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+  .progress-row span{font-size:12.5px;color:var(--slate-500);font-weight:600;white-space:nowrap}
+
+  .q-num{color:var(--orange);font-weight:700;font-size:13px;margin-bottom:8px}
+  .q-text{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.02em;margin-bottom:20px}
+  .options{display:flex;flex-direction:column;gap:11px}
+  .opt{display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:var(--slate-50);border:1.5px solid var(--slate-100);border-radius:13px;padding:15px 16px;font-family:inherit;font-size:15px;font-weight:500;color:var(--slate-900);cursor:pointer;transition:all .12s ease}
+  .opt:hover{border-color:var(--orange);background:var(--orange-soft)}
+  .opt .tick{width:22px;height:22px;border-radius:50%;border:2px solid var(--slate-300);flex-shrink:0;transition:all .12s ease}
+  .opt.sel{border-color:var(--orange);background:var(--orange-soft)}
+  .opt.sel .tick{border-color:var(--orange);background:var(--orange);box-shadow:inset 0 0 0 3px #fff}
+
+  /* profile / qualifiers */
+  .qual{margin-bottom:22px}
+  .qual > label{display:block;font-size:15px;font-weight:700;color:var(--slate-900);margin-bottom:11px;line-height:1.35}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{background:var(--slate-50);border:1.5px solid var(--slate-100);border-radius:11px;padding:11px 14px;font-family:inherit;font-size:14px;font-weight:500;color:var(--slate-900);cursor:pointer;transition:all .12s ease;text-align:left}
+  .chip:hover{border-color:var(--orange);background:var(--orange-soft)}
+  .chip.sel{border-color:var(--orange);background:var(--orange-soft);color:var(--orange-dark);font-weight:600}
+  textarea{width:100%;border:1.5px solid var(--slate-300);border-radius:12px;padding:13px 14px;font-family:inherit;font-size:14.5px;color:var(--slate-900);background:#fff;outline:none;resize:vertical;min-height:74px;transition:border .12s ease}
+  textarea:focus{border-color:var(--orange)}
+
+  /* email gate */
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--slate-700);margin-bottom:6px}
+  .field input{width:100%;border:1.5px solid var(--slate-300);border-radius:12px;padding:14px 15px;font-family:inherit;font-size:15px;color:var(--slate-900);background:#fff;outline:none;transition:border .12s ease}
+  .field input:focus{border-color:var(--orange)}
+  .privacy{font-size:12px;color:var(--slate-500);line-height:1.5;margin:14px 0 18px;text-align:center}
+  .err{color:var(--red);font-size:13px;margin-top:8px;display:none}
+
+  /* result */
+  .gauge{width:170px;height:170px;margin:4px auto 18px;position:relative}
+  .gauge svg{transform:rotate(-90deg)}
+  .gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge .val b{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .gauge .val small{font-size:12px;color:var(--slate-500);font-weight:600;margin-top:2px}
+  .band{text-align:center;font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .band-sub{text-align:center;color:var(--slate-700);font-size:15px;line-height:1.55;margin-bottom:22px}
+  .tips{background:var(--slate-50);border-radius:14px;padding:18px 18px 6px;margin-bottom:20px}
+  .tips h3{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--slate-500);margin-bottom:14px}
+  .tip{display:flex;gap:12px;margin-bottom:14px}
+  .tip .ic{width:26px;height:26px;border-radius:8px;background:var(--orange-soft);color:var(--orange);display:grid;place-items:center;font-weight:800;font-size:14px;flex-shrink:0}
+  .tip p{font-size:14.5px;line-height:1.5;color:var(--slate-700)}
+  .tip p b{color:var(--slate-900);font-weight:600}
+  .nextstep{border-left:3px solid var(--orange);background:var(--orange-soft);border-radius:0 10px 10px 0;padding:14px 16px;font-size:14.5px;line-height:1.5;color:var(--slate-700);margin-bottom:18px}
+  .nextstep b{color:var(--slate-900)}
+
+  .hidden{display:none}
+  .fade{animation:fade .4s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .foot{text-align:center;color:var(--slate-500);font-size:12px;margin-top:22px;line-height:1.6}
+  .foot a{color:var(--slate-500)}
+  .links{display:flex;gap:18px;justify-content:center;margin-top:16px;font-size:13px;font-weight:600}
+  .links a{color:var(--orange-dark);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="dot">G</div>
+    <b>Grip</b><span>by Bastech</span>
+  </div>
+
+  <!-- ===================== INTRO ===================== -->
+  <section id="screen-intro" class="card fade">
+    <span class="eyebrow">Free · 2 minutes · Instant results</span>
+    <h1>Stressed about money — even when you work hard for it?</h1>
+    <p class="lead">You're probably not bad with money. You just can't see all of it clearly. Take the free 2-minute <b>Financial Clarity Score</b> to find out exactly where your money stands — and what to fix first.</p>
+
+    <div class="vp">
+      <h4>In 2 minutes, we'll measure — and help you improve — the 3 things that decide your money clarity:</h4>
+      <div class="row"><div class="n">1</div><div><b>Visibility</b><span>Knowing exactly what you have</span></div></div>
+      <div class="row"><div class="n">2</div><div><b>Flow</b><span>Your income vs. spending each month</span></div></div>
+      <div class="row"><div class="n">3</div><div><b>Safety</b><span>Your savings, bills, and goals</span></div></div>
+    </div>
+
+    <div class="cred">
+      <div class="badge">B</div>
+      <div>Created by <b>Bastech</b> — makers of <b>Grip</b>, the personal-finance app helping Filipinos take control of their money. Your score is based on the everyday habits that separate financially <b>calm</b> people from financially <b>stressed</b> ones.</div>
+    </div>
+
+    <button class="btn" onclick="start()">Start the quiz →</button>
+    <p class="cta-micro">7 quick questions · completely free · instant personalized plan</p>
+  </section>
+
+  <!-- ===================== QUESTIONS ===================== -->
+  <section id="screen-quiz" class="card hidden">
+    <div class="progress-row">
+      <div class="progress"><i id="bar"></i></div>
+      <span id="counter">1 / 7</span>
+    </div>
+    <div id="q-body"></div>
+    <div style="margin-top:18px">
+      <button class="btn-ghost" id="backBtn" onclick="prev()">← Back</button>
+    </div>
+  </section>
+
+  <!-- ===================== PROFILE (qualifiers) ===================== -->
+  <section id="screen-profile" class="card hidden">
+    <div class="progress-row">
+      <div class="progress"><i style="width:90%"></i></div>
+      <span>Almost done</span>
+    </div>
+    <div class="q-text" style="margin-bottom:22px">A couple of quick things, so your plan fits <em>you</em>.</div>
+
+    <div class="qual">
+      <label>Which best describes you right now?</label>
+      <div class="chips" id="chips-situation"></div>
+    </div>
+    <div class="qual">
+      <label>What's the #1 thing you want in the next 90 days?</label>
+      <div class="chips" id="chips-goal"></div>
+    </div>
+    <div class="qual">
+      <label>Anything else about your money situation we should know? <span style="color:var(--slate-300);font-weight:400">(optional)</span></label>
+      <textarea id="notes" placeholder="e.g. I just started a new job, or I'm paying off a loan…"></textarea>
+    </div>
+
+    <button class="btn" id="profileBtn" onclick="finishProfile()" disabled>Continue →</button>
+  </section>
+
+  <!-- ===================== EMAIL GATE ===================== -->
+  <section id="screen-email" class="card hidden">
+    <span class="eyebrow">Last step</span>
+    <h1 style="font-size:23px">Your score is ready 🎉</h1>
+    <p class="lead">Where should we send your full results and your personalized clarity plan? No spam — just genuinely helpful money guidance.</p>
+    <div class="field">
+      <label for="name">First name <span style="color:var(--slate-300);font-weight:400">(optional)</span></label>
+      <input id="name" type="text" autocomplete="given-name" placeholder="July" />
+    </div>
+    <div class="field">
+      <label for="email">Email address</label>
+      <input id="email" type="email" autocomplete="email" placeholder="you@email.com" />
+    </div>
+    <div class="err" id="emailErr">Please enter a valid email address.</div>
+    <p class="privacy">We respect your inbox. Unsubscribe anytime.</p>
+    <button class="btn" id="revealBtn" onclick="reveal()">See my score →</button>
+  </section>
+
+  <!-- ===================== RESULT ===================== -->
+  <section id="screen-result" class="card hidden">
+    <div class="gauge">
+      <svg width="170" height="170" viewBox="0 0 170 170">
+        <circle cx="85" cy="85" r="74" fill="none" stroke="#f1f5f9" stroke-width="16"/>
+        <circle id="ring" cx="85" cy="85" r="74" fill="none" stroke="#F26722" stroke-width="16"
+                stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465"/>
+      </svg>
+      <div class="val"><b id="scoreNum">0</b><small>out of 100</small></div>
+    </div>
+    <div class="band" id="bandName">—</div>
+    <p class="band-sub" id="bandSub"></p>
+    <div class="tips">
+      <h3>Your next 3 moves</h3>
+      <div id="tipList"></div>
+    </div>
+    <div class="nextstep" id="nextStep"></div>
+    <a href="https://grip.bastech.app" target="_blank" rel="noopener" style="text-decoration:none">
+      <button class="btn" id="ctaBtn">Start getting clear with Grip — free →</button>
+    </a>
+    <div class="links">
+      <a href="https://bastech.app" target="_blank" rel="noopener">Website</a>
+      <a href="https://www.instagram.com/bastech11" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://grip.bastech.app" target="_blank" rel="noopener">Try Grip</a>
+    </div>
+    <p class="foot">Grip helps you see every account, every peso, and every bill in one place.<br/>A <a href="https://bastech.app" target="_blank" rel="noopener">Bastech</a> product.</p>
+  </section>
+
+  <p class="foot">© Bastech · <a href="https://bastech.app/privacy" target="_blank" rel="noopener">Privacy</a></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ---------- Supabase (Grip project) ---------- */
+const SB_URL = "https://lougyjzwiobmunptpgvg.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxvdWd5anp3aW9ibXVucHRwZ3ZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4OTc5NTksImV4cCI6MjA5MDQ3Mzk1OX0.No0QLO1EAO32SrB5pFzZDNEi_WScIQuCBm37cPySMUQ";
+const sb = window.supabase.createClient(SB_URL, SB_KEY);
+
+/* ---------- Scored quiz (7 best-practice questions) ----------
+   Each option carries points (0 / 5 / 10). Max 70 => normalized to /100. */
+const QUESTIONS = [
+  { id:"q1", text:"Do you know exactly how much money you have right now, across all accounts?",
+    opts:[ {t:"Yes — to the peso",p:10},{t:"Roughly, within a few thousand",p:5},{t:"Honestly, no idea",p:0} ],
+    weakTip:"<b>See your real balance.</b> Put every account — cash, bank, e-wallet — in one place so you always know your true number." },
+  { id:"q2", text:"Do you track where your money actually goes each month?",
+    opts:[ {t:"Yes, I log most spending",p:10},{t:"Sometimes / in my head",p:5},{t:"Never",p:0} ],
+    weakTip:"<b>Track for one month.</b> Just seeing where it goes changes how you spend — no budget required yet." },
+  { id:"q3", text:"At the end of a typical month, you usually…",
+    opts:[ {t:"Have money left to save",p:10},{t:"Break even — nothing left",p:5},{t:"Run short or borrow",p:0} ],
+    weakTip:"<b>Watch your cash flow.</b> A simple income-minus-expense view stops months from ending in surprise." },
+  { id:"q4", text:"How do you handle bills and due dates?",
+    opts:[ {t:"I have a system / reminders",p:10},{t:"From memory, mostly",p:5},{t:"I often miss or forget some",p:0} ],
+    weakTip:"<b>Never miss a due date.</b> List your monthly payables with due dates so nothing slips and you dodge late fees." },
+  { id:"q5", text:"If an emergency hit tomorrow, you could cover it with…",
+    opts:[ {t:"3+ months of savings",p:10},{t:"A little set aside",p:5},{t:"Nothing — I'd borrow",p:0} ],
+    weakTip:"<b>Start a buffer.</b> Aim for one month of expenses first, then build from there. Clarity makes room for it." },
+  { id:"q6", text:"Do you have clear savings goals you're actively moving toward?",
+    opts:[ {t:"Yes, and I track progress",p:10},{t:"Vague ones in my head",p:5},{t:"Not really",p:0} ],
+    weakTip:"<b>Give every peso a job.</b> Set one clear goal and watch the progress bar move — momentum is motivating." },
+  { id:"q7", text:"When you think about your finances, you feel…",
+    opts:[ {t:"Calm and in control",p:10},{t:"A bit uncertain",p:5},{t:"Anxious or avoidant",p:0} ],
+    weakTip:"<b>Clarity beats anxiety.</b> Most money stress comes from not seeing the full picture. Seeing it is the relief." },
+];
+const MAX = QUESTIONS.length * 10;
+
+/* ---------- Qualifying questions (Priestley's "Big 5", trimmed for a free B2C product) ---------- */
+const SITUATIONS = [
+  "Just starting to take money seriously",
+  "Earning steadily, but money disappears",
+  "Saving a bit, but no real system",
+  "I manage well — want to optimize",
+];
+const GOALS = [
+  "Finally know where my money goes",
+  "Stop running short before payday",
+  "Build an emergency fund",
+  "Hit a specific savings goal",
+  "Get out of debt",
+];
+
+/* ---------- State ---------- */
+let step = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+const profile = { situation:null, goal:null, notes:"" };
+let leadSaved = false;
+
+const $ = id => document.getElementById(id);
+function show(screen){
+  ["intro","quiz","profile","email","result"].forEach(s=>$("screen-"+s).classList.add("hidden"));
+  const el = $("screen-"+screen); el.classList.remove("hidden"); el.classList.remove("fade"); void el.offsetWidth; el.classList.add("fade");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function start(){ step=0; renderQ(); show("quiz"); }
+
+function renderQ(){
+  const q = QUESTIONS[step];
+  $("bar").style.width = (step/QUESTIONS.length*100)+"%";
+  $("counter").textContent = (step+1)+" / "+QUESTIONS.length;
+  $("backBtn").style.visibility = step===0 ? "hidden" : "visible";
+  $("q-body").innerHTML =
+    '<div class="q-num">Question '+(step+1)+'</div>'+
+    '<div class="q-text">'+q.text+'</div>'+
+    '<div class="options">'+
+      q.opts.map((o,i)=>
+        '<button class="opt'+(answers[step]===i?' sel':'')+'" onclick="pick('+i+')">'+
+        '<span class="tick"></span><span>'+o.t+'</span></button>'
+      ).join('')+
+    '</div>';
+}
+function pick(i){
+  answers[step]=i;
+  document.querySelectorAll('#q-body .opt').forEach((el,idx)=>el.classList.toggle('sel',idx===i));
+  setTimeout(next,180);
+}
+function next(){
+  if(answers[step]===null) return;
+  if(step < QUESTIONS.length-1){ step++; renderQ(); window.scrollTo({top:0,behavior:"smooth"}); }
+  else { $("bar").style.width="100%"; renderProfile(); show("profile"); }
+}
+function prev(){ if(step>0){ step--; renderQ(); } }
+
+/* ---------- Profile (qualifiers) ---------- */
+function renderProfile(){
+  $("chips-situation").innerHTML = SITUATIONS.map((s,i)=>
+    '<button class="chip" data-grp="situation" data-i="'+i+'" onclick="pickChip(this)">'+s+'</button>').join('');
+  $("chips-goal").innerHTML = GOALS.map((s,i)=>
+    '<button class="chip" data-grp="goal" data-i="'+i+'" onclick="pickChip(this)">'+s+'</button>').join('');
+}
+function pickChip(el){
+  const grp = el.dataset.grp;
+  document.querySelectorAll('.chip[data-grp="'+grp+'"]').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  profile[grp] = grp==="situation" ? SITUATIONS[el.dataset.i] : GOALS[el.dataset.i];
+  $("profileBtn").disabled = !(profile.situation && profile.goal);
+}
+function finishProfile(){
+  profile.notes = $("notes").value.trim();
+  show("email");
+}
+
+/* ---------- Scoring ---------- */
+function computeScore(){
+  let pts=0;
+  answers.forEach((ai,qi)=>{ if(ai!==null) pts += QUESTIONS[qi].opts[ai].p; });
+  return Math.round(pts / MAX * 100);
+}
+function bandFor(score){
+  if(score>=75) return {
+    name:"Clear & In Control", color:"#16a34a",
+    sub:"You've got real visibility over your money. The opportunity now: turn that clarity into faster goals.",
+    next:"<b>You've built the habits — now make them effortless.</b> Grip keeps your whole money picture in one place automatically, so you stay ahead without the mental load.",
+    cta:"Optimize your money with Grip — free →" };
+  if(score>=45) return {
+    name:"Finding Your Footing", color:"#f59e0b",
+    sub:"You're doing some things right, but a few blind spots are costing you peace of mind. A little structure turns 'mostly okay' into genuinely confident.",
+    next:"<b>You're close.</b> Closing one or two gaps this month is all it takes. Start with your top move above — Grip makes each one a 5-minute setup.",
+    cta:"Start getting clear with Grip — free →" };
+  return {
+    name:"In the Fog", color:"#ef4444",
+    sub:"Right now money feels uncertain — and that's not a character flaw, it's a clarity gap. Seeing the full picture is the fastest relief there is.",
+    next:"<b>The fastest relief is simply seeing everything in one place.</b> Start there this week — it's free, takes minutes, and changes how money feels almost immediately.",
+    cta:"Get clear with Grip — free →" };
+}
+
+/* ---------- Email gate + save lead ---------- */
+function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+async function reveal(){
+  const email = $("email").value.trim();
+  const name  = $("name").value.trim();
+  if(!validEmail(email)){ $("emailErr").style.display="block"; return; }
+  $("emailErr").style.display="none";
+  const btn = $("revealBtn"); btn.disabled=true; btn.textContent="Saving…";
+
+  const score = computeScore();
+  const band  = bandFor(score).name;
+  const scored = {};
+  answers.forEach((ai,qi)=>{ scored[QUESTIONS[qi].id] = ai===null?null:QUESTIONS[qi].opts[ai].p; });
+  const payload = { scored, situation:profile.situation, goal:profile.goal, notes:profile.notes };
+
+  try{
+    if(!leadSaved){
+      const { error } = await sb.from("scorecard_leads").insert({
+        full_name:name||null, email, score, band, product:"grip",
+        answers:payload, user_agent:navigator.userAgent
+      });
+      if(error) console.warn("Lead save failed:", error.message);
+      else leadSaved=true;
+    }
+  }catch(err){ console.warn("Lead save exception:", err); }
+
+  renderResult(score);
+  show("result");
+  btn.disabled=false; btn.textContent="See my score →";
+}
+
+/* ---------- Result render ---------- */
+function renderResult(score){
+  const b = bandFor(score);
+  $("bandName").textContent = b.name;
+  $("bandName").style.color = b.color;
+  $("bandSub").textContent  = b.sub;
+  $("ring").style.stroke = b.color;
+  $("nextStep").innerHTML = b.next;
+  $("ctaBtn").textContent = b.cta;
+
+  const ring = $("ring"), C = 465;
+  setTimeout(()=>{ ring.style.transition="stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1)"; ring.style.strokeDashoffset = C - (C*score/100); }, 120);
+  let cur=0; const target=score, el=$("scoreNum");
+  const iv=setInterval(()=>{ cur+=Math.ceil(target/28)||1; if(cur>=target){cur=target;clearInterval(iv);} el.textContent=cur; }, 32);
+
+  const ranked = answers.map((ai,qi)=>({qi, p: ai===null?10:QUESTIONS[qi].opts[ai].p}))
+                        .sort((a,b)=>a.p-b.p);
+  const chosen = ranked.filter(r=>r.p<10).slice(0,3);
+  while(chosen.length<3){ const extra = ranked.find(r=>!chosen.includes(r)); if(!extra) break; chosen.push(extra); }
+  $("tipList").innerHTML = chosen.map((r,i)=>
+    '<div class="tip"><div class="ic">'+(i+1)+'</div><p>'+QUESTIONS[r.qi].weakTip+'</p></div>'
+  ).join('');
+}
+</script>
+</body>
+</html>
