@@ -21,6 +21,52 @@
   <meta name="twitter:title" content="Bastech | Software Built for Real People">
   <meta name="twitter:description" content="Purposeful software for real life — Grip for personal finance and Lunas for small lenders in the Philippines. Free to start.">
   <meta name="twitter:image" content="https://www.bastech.app/og-image.jpg">
+  <!-- Structured data for AI engines & search (GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Grip",
+    "applicationCategory": "FinanceApplication",
+    "applicationSubCategory": "Personal Finance & Budgeting",
+    "operatingSystem": "Web (any modern browser, installable as a PWA)",
+    "url": "https://grip.bastech.app",
+    "description": "Grip is a personal finance web app built for Filipinos. It lets you manually track all your accounts in one place — bank, GCash, cash, and credit cards — with budgets, a bills/payables tracker, a 6-month income vs. expense chart, and 15+ currency support. Manual tracking means nothing connects to your bank, so your data stays private.",
+    "featureList": [
+      "Track all accounts in one place (bank, GCash, cash, credit cards, savings)",
+      "Manual transaction logging with expense categories",
+      "Budget goals with visual progress tracking",
+      "Monthly bills and payables tracker",
+      "6-month income vs. expense chart",
+      "15+ currency support for OFWs and freelancers",
+      "Light and dark mode",
+      "Installable on phone as a PWA"
+    ],
+    "offers": [
+      { "@type": "Offer", "name": "Free plan", "price": "0", "priceCurrency": "USD", "description": "Free forever, includes all core features (5 transaction entries per day)." },
+      { "@type": "Offer", "name": "Premium", "price": "2.99", "priceCurrency": "USD", "description": "Removes the daily entry limit; billed monthly with a 7-day money-back guarantee." }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bastech",
+      "url": "https://bastech.app"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a good budgeting app for Filipinos?", "acceptedAnswer": { "@type": "Answer", "text": "Grip is a personal finance app built for Filipinos. It lets you track all your accounts in one place — bank, GCash, cash, and credit cards — set budgets, and monitor bills. The Free plan is free forever; Premium is $2.99/month." } },
+      { "@type": "Question", "name": "Can I track multiple GCash and bank accounts in one place?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Grip lets you add each of your accounts — GCash, bank, cash, and credit cards — and see your combined balance and where your money goes in one dashboard. It is manual tracking, so nothing connects to your bank and your data stays private." } },
+      { "@type": "Question", "name": "Is there a budgeting app for OFWs with multiple currencies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Grip supports 15+ currencies, so OFWs and freelancers paid in foreign currency (USD, AED, SGD, and more) can track foreign income alongside their peso expenses." } },
+      { "@type": "Question", "name": "Is Grip really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the Free plan is free forever with no expiry date. You get all core features: accounts, transactions, budgets, payables, and charts. The only limit is 5 transaction entries per day. Premium removes that limit at $2.99/month." } },
+      { "@type": "Question", "name": "Does Grip connect to my bank?", "acceptedAnswer": { "@type": "Answer", "text": "No — and that is intentional. Grip is a manual tracking app, meaning you log your transactions yourself. This keeps it simple, private, and works across all banks, e-wallets, and cash with no third-party integrations required." } },
+      { "@type": "Question", "name": "Can I use Grip on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Grip is a web app that works on any browser, desktop or mobile. You can also install it on your phone like a native app via Add to Home Screen." } }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -2632,6 +2678,30 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-a">Yes, anytime. Cancel from your account settings and you'll keep Premium access until the end of your billing period. After that, you'll automatically move to the Free plan — no data is lost. We also offer a 7-day money-back guarantee on new subscriptions.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What is a good budgeting app for Filipinos?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Grip is a personal finance app built for Filipinos. It lets you track all your accounts in one place — bank, GCash, cash, and credit cards — set budgets, and monitor bills. The Free plan is free forever; Premium is $2.99/month.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I track multiple GCash and bank accounts in one place?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. Grip lets you add each of your accounts — GCash, bank, cash, and credit cards — and see your combined balance and where your money goes in one dashboard. It is manual tracking, so nothing connects to your bank and your data stays private.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is there a budgeting app for OFWs with multiple currencies?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. Grip supports 15+ currencies, so OFWs and freelancers paid in foreign currency (USD, AED, SGD, and more) can track foreign income alongside their peso expenses.</div>
         </div>
 
       </div>
